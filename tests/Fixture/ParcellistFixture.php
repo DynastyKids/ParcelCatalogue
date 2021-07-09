@@ -26,6 +26,7 @@ class ParcellistFixture extends TestFixture
         'driver' => ['type' => 'string', 'length' => 255, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'zone' => ['type' => 'string', 'length' => 255, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'note' => ['type' => 'string', 'length' => 255, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
+        'suburb' => ['type' => 'string', 'length' => 255, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
         ],
@@ -49,6 +50,7 @@ class ParcellistFixture extends TestFixture
                 'driver' => 'Lorem ipsum dolor sit amet',
                 'zone' => 'Lorem ipsum dolor sit amet',
                 'note' => 'Lorem ipsum dolor sit amet',
+                'suburb' => 'Lorem ipsum dolor sit amet',
             ],
         ];
         parent::init();

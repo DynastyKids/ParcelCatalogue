@@ -15,11 +15,15 @@ class ParcellistController extends AppController
     /**
      * Index method
      *
+     * @param string|null $word keyword.
      * @return \Cake\Http\Response|null
      */
-    public function index()
+    public function index($word=null)
     {
         $parcellist = $this->Parcellist->find();
+        if($word !=null){
+            $parcellist = $this->Parcellist->find()->where(['street like'=>$word.'%']);
+        }
 
         $this->set(compact('parcellist'));
     }

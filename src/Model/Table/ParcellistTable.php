@@ -68,6 +68,11 @@ class ParcellistTable extends Table
             ->maxLength('note', 255)
             ->allowEmptyString('note');
 
+        $validator
+            ->scalar('suburb')
+            ->maxLength('suburb', 255)
+            ->allowEmptyString('suburb');
+
         return $validator;
     }
 }

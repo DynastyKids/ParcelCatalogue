@@ -38,7 +38,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <nav class="top-bar expanded" data-topbar role="navigation">
         <ul class="title-area columns">
             <li class="name">
-                <h1><a href="">Parcel Lists</a></h1>
+                <h1><a href="/">Parcel Lists</a></h1>
             </li>
         </ul>
 <!--        <div class="top-bar-section">-->
@@ -53,7 +53,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </nav>
 
     <?= $this->Flash->render() ?>
-    <div class="container clearfix">
+    <div class="clearfix">
         <?= $this->fetch('content') ?>
     </div>
     <footer>

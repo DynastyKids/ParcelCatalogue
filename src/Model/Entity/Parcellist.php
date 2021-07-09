@@ -11,6 +11,7 @@ use Cake\ORM\Entity;
  * @property string|null $driver
  * @property string|null $zone
  * @property string|null $note
+ * @property string|null $suburb
  */
 class Parcellist extends Entity
 {
@@ -28,5 +29,6 @@ class Parcellist extends Entity
         'driver' => true,
         'zone' => true,
         'note' => true,
+        'suburb' => true,
     ];
 }
