@@ -10,3 +10,10 @@
     RewriteRule    ^$    webroot/    [L]
     RewriteRule    (.*) webroot/$1    [L]
 </IfModule>
+
+<IfModule mod_headers.c>
+    Header set Connection keep-alive
+        <filesMatch "*">
+        Header set Cache-Control "max-age=7200, must-revalidate"
+        </filesMatch>
+</IfModule>
