@@ -362,8 +362,8 @@ $pagename = "Sorting List";
         padding: 5px;
         border-radius: 10px;
         font-size: 18px;
-        height: 30px !important;
-        width: 30px !important;
+        height: 75px !important;
+        width: 75px !important;
     }
 </style>
 
