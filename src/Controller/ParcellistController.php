@@ -64,9 +64,7 @@ class ParcellistController extends AppController
     {
         $parcellist = $this->Parcellist->find();
         debug($zone);
-        if($zone==0){
-            $parcellist = $this->Parcellist->find()->whereNull('driver')->orderAsc('street');
-        }else if($zone==1){
+        if($zone==1){
             $parcellist = $this->Parcellist->find()->where(['zone like'=>'%1'])->orderAsc('street');
             $parcellistA = $this->Parcellist->find()->where(['street like'=>'A%', 'zone like'=>'%1'])->orderAsc('street');
             $parcellistB = $this->Parcellist->find()->where(['street like'=>'B%', 'zone like'=>'%1'])->orderAsc('street');
