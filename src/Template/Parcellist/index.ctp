@@ -29,7 +29,6 @@ $pagename = "Sorting List";
     </div>
 </nav>
 <div class="container-fluid" style="min-width: 100%">
-<div class="mb-1" style="background-color:black;max-height: 100vh; overflow: auto; min-width: 100%">
     <small style="color:lightsteelblue">Randwick 1: Cesar, Leo, Danny, Ivan, Chris, <span style="color: #1cc7ff">Peter, Mark</span></small><br>
     <small style="color:lightsteelblue">Randwick 2: Louis, Subash, Pramesh, Sean, Saruul, <span style="color: #1cc7ff">Derek</span></small>
     <form>
@@ -41,25 +40,25 @@ $pagename = "Sorting List";
 
         </div>
         <div id="livesearch"></div>
-    <script>
-        function showResult(str) {
-            if (str.length==0) {
-                document.getElementById("livesearch").innerHTML="";
-                document.getElementById("livesearch").style.border="0px";
-                return;
-            }
-            var xmlhttp=new XMLHttpRequest();
-            xmlhttp.onreadystatechange=function() {
-                if (this.readyState==4 && this.status==200) {
-                    document.getElementById("livesearch").innerHTML=this.responseText;
-                    document.getElementById("livesearch").style.border="1px solid #A5ACB2";
+        <script>
+            function showResult(str) {
+                if (str.length==0) {
+                    document.getElementById("livesearch").innerHTML="";
+                    document.getElementById("livesearch").style.border="0px";
+                    return;
                 }
+                var xmlhttp=new XMLHttpRequest();
+                xmlhttp.onreadystatechange=function() {
+                    if (this.readyState==4 && this.status==200) {
+                        document.getElementById("livesearch").innerHTML=this.responseText;
+                        document.getElementById("livesearch").style.border="1px solid #A5ACB2";
+                    }
+                }
+                xmlhttp.open("GET","/parcellist/search/"+str,true);
+                xmlhttp.send();
             }
-            xmlhttp.open("GET","/parcellist/search/"+str,true);
-            xmlhttp.send();
-        }
-    </script>
-
+        </script>
+<div class="mb-1" style="background-color:black; min-width: 100%">
     <div class="d-flex align-items-start">
         <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical" style="max-height: 120vh;overflow:auto;">
             <button class="nav-link active" id="v-pills-All-tab" data-bs-toggle="pill" data-bs-target="#v-pills-all" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">All</button>
