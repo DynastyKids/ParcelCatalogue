@@ -1,5 +1,4 @@
 <?php $this->layout=false;?>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
 <?php if($parcellist->count()>0){?>
     <table class="table table-success table-striped table-sm">
         <thead style="font-weight: bold"><tr><td colspan="3">Street Name</td><td>Driver Name</td></tr></thead>
@@ -18,5 +17,7 @@
         </tbody>
     </table>
 <?php } else {?>
-    No Results Found
+    <table class="table table-success table-striped table-sm">
+        <tr><td>No Results Found</td></tr>
+    </table>
 <?php }?>

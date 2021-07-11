@@ -6,14 +6,41 @@
 
 $pagename = "Sorting List";
 ?>
-<div class="mt-1 mb-1" style="background-color:black">
-    <small style="color:lightsteelblue">1: Cesar, Leo, Danny, Ivan, Chris, Peter, Mark</small><br>
-    <small style="color:lightsteelblue">2: Louis, Subash, Pramesh, Sean, Saruul, Derek</small>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/">Sorting List</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/add">Adding missing street</a></li>
+                <!--                <li class="nav-item"><a class="nav-link" href="#">Link</a></li>-->
+                <!--                <li class="nav-item dropdown">-->
+                <!--                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>-->
+                <!--                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">-->
+                <!--                        <li><a class="dropdown-item" href="#">Action</a></li>-->
+                <!--                        <li><a class="dropdown-item" href="#">Another action</a></li>-->
+                <!--                        <li><hr class="dropdown-divider" /></li>-->
+                <!--                        <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+                <!--                    </ul>-->
+                <!--                </li>-->
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid" style="min-width: 100%">
+<div class="mb-1" style="background-color:black;max-height: 100vh; overflow: auto; min-width: 100%">
+    <small style="color:lightsteelblue">Randwick 1: Cesar, Leo, Danny, Ivan, Chris, <span style="color: #1cc7ff">Peter, Mark</span></small><br>
+    <small style="color:lightsteelblue">Randwick 2: Louis, Subash, Pramesh, Sean, Saruul, <span style="color: #1cc7ff">Derek</span></small>
     <form>
-        <input class="form-control" type="text" placeholder="Type in street name for search" onkeyup="showResult(this.value)">
-        <div id="livesearch"></div>
-    </form>
+        <div class="input-group">
+            <input id="searchinput" type="text" class="form-control" placeholder="Type in street name for search..." onkeyup="showResult(this.value)">
+            <button type="button" class="btn bg-transparent" style="margin-left: -40px; z-index: 100;" onclick="document.getElementById('searchinput').value=''">
+                <i class="fa fa-times"></i>
+            </button>
 
+        </div>
+        <div id="livesearch"></div>
     <script>
         function showResult(str) {
             if (str.length==0) {
@@ -34,7 +61,7 @@ $pagename = "Sorting List";
     </script>
 
     <div class="d-flex align-items-start">
-        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical" style="max-height: 120vh;overflow:auto;">
             <button class="nav-link active" id="v-pills-All-tab" data-bs-toggle="pill" data-bs-target="#v-pills-all" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">All</button>
             <button class="nav-link" id="v-pills-A-tab" data-bs-toggle="pill" data-bs-target="#v-pills-A" type="button" role="tab" aria-controls="v-pills-A" aria-selected="false">A</button>
             <button class="nav-link" id="v-pills-B-tab" data-bs-toggle="pill" data-bs-target="#v-pills-B" type="button" role="tab" aria-controls="v-pills-B" aria-selected="false">B</button>
@@ -63,7 +90,7 @@ $pagename = "Sorting List";
             <button class="nav-link" id="v-pills-Y-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Y" type="button" role="tab" aria-controls="v-pills-Y" aria-selected="false">Y</button>
             <button class="nav-link" id="v-pills-Z-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Z" type="button" role="tab" aria-controls="v-pills-Z" aria-selected="false">Z</button>
         </div>
-        <div class="tab-content" id="v-pills-tabContent" style="width:-webkit-fill-avaiable">
+        <div class="tab-content" id="v-pills-tabContent">
             <div class="tab-pane fade show active" id="v-pills-all" role="tabpanel" aria-labelledby="v-pills-all-tab">
                 <table class="table table-striped table-dark">
                     <thead><tr><th scope="col" colspan="3">Street Name</th><th scope="col">Driver</th></tr></thead>
@@ -340,12 +367,14 @@ $pagename = "Sorting List";
         </div>
     </div>
 </div>
+</div>
 
 <button onclick="topFunction()" id="myBtn" title="Go to top">^</button>
 
 <style>
     .nav-link{
-        padding: .1rem .5rem !important;
+        max-width: 100%;
+        padding: .1rem .3rem !important;
     }
 
     #myBtn {
@@ -364,6 +393,11 @@ $pagename = "Sorting List";
         font-size: 18px;
         height: 75px !important;
         width: 75px !important;
+        opacity: 0.5;
+    }
+
+    #v-pills-tabContent{
+        width: 100% !important;
     }
 </style>
 

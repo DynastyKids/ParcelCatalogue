@@ -64,6 +64,7 @@ Router::scope('/', function (RouteBuilder $routes) {
      */
     $routes->connect('/', ['controller' => 'Parcellist', 'action' => 'index']);
     $routes->connect('/search', ['controller' => 'Parcellist', 'action' => 'search']);
+    $routes->connect('/add', ['controller' => 'Parcellist', 'action' => 'add']);
 
     /*
      * ...and connect the rest of 'Pages' controller's URLs.
