@@ -31,11 +31,14 @@
         <legend><?= __('Adding Street Details') ?></legend>
         <?= $this->Form->control('street',['label'=>'(Required) Street Name:','type'=>'text','class'=>'form-control','required'=>true]);?>
         <br>
-        <?= $this->Form->control('driver',['label'=>'Driver Name:','type'=>'text','class'=>'form-control']);?>
+        <label for="driver">Driver Name:</label>
+        <?= $this->Form->select('driver',
+            ['Cesar'=>'Cesar','Ivan'=>'Ivan','Leo'=>'Leo','Danny'=>'Danny','Chris'=>'Chris','Mark'=>'Mark','Peter'=>'Peter','Louis'=>'Louis','Subash'=>'Subash','Pramesh'=>'Pramesh','Sean'=>'Sean','Saruul'=>'Saruul','Derek'=>'Derek']
+            ,['class'=>'form-control']);?>
         <br>
         <?= $this->Form->control('suburb',['label'=>'Suburb Name:','type'=>'text','class'=>'form-control']);?>
         <br>
-        <?= $this->Form->control('note',['label'=>'Addition note:','type'=>'text','class'=>'form-control']);?>
+        <?= $this->Form->hidden('zone',['label'=>'Zone Name:','type'=>'text','class'=>'form-control','value'=>'randwick']);?>
         <br>
     </fieldset>
     <br>
