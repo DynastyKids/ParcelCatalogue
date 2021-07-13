@@ -38,7 +38,9 @@
             <button type="button" class="btn bg-transparent" style="margin-left: -40px; z-index: 100;" onclick="document.getElementById('searchinput').value=''">
                 <i class="fa fa-times"></i>
             </button>
-
+            <button type="button" class="btn btn-warning" style="width: 100px" onclick="document.getElementById('searchinput').value=''">
+                Clear
+            </button>
         </div>
         <div id="livesearch"></div>
         <script>
