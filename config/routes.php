@@ -68,6 +68,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/zone0', ['controller' => 'Parcellist', 'action' => 'zone','0']);
     $routes->connect('/zone1', ['controller' => 'Parcellist', 'action' => 'zone','1']);
     $routes->connect('/zone2', ['controller' => 'Parcellist', 'action' => 'zone','2']);
+    $routes->connect('/manages', ['controller' => 'Parcellist', 'action' => 'manage']);
 
     /*
      * ...and connect the rest of 'Pages' controller's URLs.

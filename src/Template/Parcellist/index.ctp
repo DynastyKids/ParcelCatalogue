@@ -19,6 +19,8 @@
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="/zone1">Radnwick 1</a></li>
                         <li><a class="dropdown-item" href="/zone2">Randwick 2</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href=<?= $this->Url->build(['action'=>'manage','0'])?>>Unknown</a></li>
                     </ul>
                 </li>
             </ul>

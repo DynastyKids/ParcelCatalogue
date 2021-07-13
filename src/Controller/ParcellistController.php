@@ -129,7 +129,9 @@ class ParcellistController extends AppController
                 'parcellistE','parcellistF','parcellistG','parcellistH','parcellistI','parcellistJ','parcellistK',
                 'parcellistL','parcellistM','parcellistN','parcellistO','parcellistP','parcellistQ','parcellistR',
                 'parcellistS','parcellistT','parcellistU','parcellistV','parcellistW','parcellistX','parcellistY','parcellistZ'));
-        } else{
+        } else if ($zone==0){
+            $parcellist = $this->Parcellist->find()->whereNull('driver')->orderAsc('street');
+        } else {
             $this->redirect('/');
         }
         $this->set(compact('parcellist'));
@@ -154,9 +156,12 @@ class ParcellistController extends AppController
      *
      * @return \Cake\Http\Response|null
      */
-    public function manage()
+    public function manage($word=null)
     {
         $parcellist = $this->Parcellist->find();
+        if ($word==0){
+            $parcellist = $this->Parcellist->find()->whereNull('driver');
+        }
 
         $this->set(compact('parcellist'));
     }
