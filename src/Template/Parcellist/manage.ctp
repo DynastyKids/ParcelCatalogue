@@ -6,7 +6,7 @@
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="/">Sorting List</a>
+        <a class="navbar-brand" href="/">Manage Sorting List</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -26,22 +26,22 @@
     </div>
 </nav>
 <div class="columns container">
-    <?= $this->Html->link(__('New Street Details'), ['action' => 'add']) ?>
+<!--    --><?php //echo $this->Html->link(__('New Street Details'), ['action' => 'add']) ?>
     <table class="table table-striped table-dark">
         <thead>
         <tr>
+            <th scope="col">Id</th>
             <th scope="col">Street</th>
             <th scope="col">Driver</th>
-            <th scope="col">Zone</th>
             <th scope="col" class="actions"><?= __('Actions') ?></th>
         </tr>
         </thead>
         <tbody>
         <?php foreach ($parcellist as $parcellist): ?>
             <tr>
+                <td><?= h($parcellist->id) ?></td>
                 <td><?= h($parcellist->street) ?></td>
                 <td><?= h($parcellist->driver) ?></td>
-                <td><?= h($parcellist->zone) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcellist->id]) ?>
                 </td>

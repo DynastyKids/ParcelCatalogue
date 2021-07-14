@@ -1,7 +1,7 @@
 <?php $this->layout=false;?>
 <?php if($parcellist->count()>0){?>
     <table class="table table-success table-striped table-sm">
-        <thead style="font-weight: bold"><tr><td colspan="3">Street Name</td><td>Driver Name</td></tr></thead>
+        <thead style="font-weight: bold"><tr><td colspan="3">Street Name</td><td>Driver</td></tr></thead>
         <tbody>
             <?php for($i=0;$i<$parcellist->count() && $i<10;$i++){?>
                 <tr>

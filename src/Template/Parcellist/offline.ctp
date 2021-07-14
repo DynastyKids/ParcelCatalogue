@@ -3,21 +3,15 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Parcellist[]|\Cake\Collection\CollectionInterface $parcellist
  */
-
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <?php if($zone==0){
-            echo "Unknown Driver list;";
-        } else {?>
-            <a class="navbar-brand" href="/">Sorting List - Randwick <?= $zone?></a>
-        <?php } ?>
-
+        <a class="navbar-brand" href="/">Sorting List - Offline Mode</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/add">Adding missing street</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/add">Add missing street</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">By Zone</a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -32,11 +26,8 @@
     </div>
 </nav>
 <div class="container-fluid" style="min-width: 100%">
-    <?php if ($zone ==1){?>
-        <small style="color:lightsteelblue">Randwick 1: Cesar, Leo, Danny, Ivan, Chris, <span style="color: #1cc7ff">Peter, Mark</span></small>
-    <?php } else if ($zone ==2){?>
-        <small style="color:lightsteelblue">Randwick 2: Louis, Subash, Pramesh, Sean, Saruul, <span style="color: #1cc7ff">Derek</span></small>
-    <?php }?>
+    <small style="color:lightsteelblue">Randwick 1: Cesar, Leo, Danny, Ivan, Chris, <span style="color: #1cc7ff">Peter, Mark</span></small><br>
+    <small style="color:lightsteelblue">Randwick 2: Louis, Subash, Pramesh, Sean, Saruul, <span style="color: #1cc7ff">Derek</span></small>
     <form>
         <div class="input-group">
             <input id="searchinput" type="text" class="form-control" placeholder="Type in street name for search..." onkeyup="showResult(this.value)">
@@ -47,6 +38,7 @@
                 Clear
             </button>
         </div>
+
         <div id="livesearch"></div>
         <script>
             function showResult(str) {

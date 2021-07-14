@@ -31,17 +31,18 @@
         <legend><?= __('Adding Street Details') ?></legend>
         <?= $this->Form->control('street',['label'=>'(Required) Street Name:','type'=>'text','class'=>'form-control','required'=>true]);?>
         <br>
-        <label for="driver">Driver Name:</label>
+        <label for="driver" class="col-form-label">Driver Name:</label>
         <?= $this->Form->select('driver',
             ['Cesar'=>'Cesar','Ivan'=>'Ivan','Leo'=>'Leo','Danny'=>'Danny','Chris'=>'Chris','Mark'=>'Mark','Peter'=>'Peter','Louis'=>'Louis','Subash'=>'Subash','Pramesh'=>'Pramesh','Sean'=>'Sean','Saruul'=>'Saruul','Derek'=>'Derek']
             ,['class'=>'form-control']);?>
         <br>
-        <?= $this->Form->control('suburb',['label'=>'Suburb Name:','type'=>'text','class'=>'form-control']);?>
+        <?= $this->Form->control('suburb',['label'=>'Suburb Name','type'=>'text','class'=>'form-control']);?>
         <br>
-        <?= $this->Form->hidden('zone',['label'=>'Zone Name:','type'=>'text','class'=>'form-control','value'=>'randwick']);?>
+        <?= $this->Form->hidden('zone',['type'=>'text','class'=>'form-control','value'=>'randwick']);?>
         <br>
     </fieldset>
     <br>
     <?= $this->Form->button('Submit',['class'=>'btn btn-primary']) ?>
     <?= $this->Form->end() ?>
+    <br><br>
 </div>

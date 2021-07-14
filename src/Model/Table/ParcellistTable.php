@@ -64,14 +64,24 @@ class ParcellistTable extends Table
             ->allowEmptyString('zone');
 
         $validator
-            ->scalar('note')
-            ->maxLength('note', 255)
-            ->allowEmptyString('note');
+            ->scalar('suburb')
+            ->allowEmptyString('suburb');
 
         $validator
-            ->scalar('suburb')
-            ->maxLength('suburb', 255)
-            ->allowEmptyString('suburb');
+            ->integer('oddblimit')
+            ->allowEmptyString('oddblimit');
+
+        $validator
+            ->integer('oddulimit')
+            ->allowEmptyString('oddulimit');
+
+        $validator
+            ->integer('evenblimit')
+            ->allowEmptyString('evenblimit');
+
+        $validator
+            ->integer('evenulimit')
+            ->allowEmptyString('evenulimit');
 
         return $validator;
     }

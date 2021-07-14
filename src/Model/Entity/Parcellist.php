@@ -10,8 +10,11 @@ use Cake\ORM\Entity;
  * @property string $street
  * @property string|null $driver
  * @property string|null $zone
- * @property string|null $note
  * @property string|null $suburb
+ * @property int|null $oddblimit
+ * @property int|null $oddulimit
+ * @property int|null $evenblimit
+ * @property int|null $evenulimit
  */
 class Parcellist extends Entity
 {
@@ -28,7 +31,10 @@ class Parcellist extends Entity
         'street' => true,
         'driver' => true,
         'zone' => true,
-        'note' => true,
         'suburb' => true,
+        'oddblimit' => true,
+        'oddulimit' => true,
+        'evenblimit' => true,
+        'evenulimit' => true,
     ];
 }

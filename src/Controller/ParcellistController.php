@@ -55,6 +55,48 @@ class ParcellistController extends AppController
     }
 
     /**
+     * Offline method
+     *
+     * @return \Cake\Http\Response|null
+     */
+    public function Offline()
+    {
+        $parcellist = $this->Parcellist->find()->orderAsc('street');
+        $parcellistA = $this->Parcellist->find()->where(['street like'=>'A%'])->orderAsc('street');
+        $parcellistB = $this->Parcellist->find()->where(['street like'=>'B%'])->orderAsc('street');
+        $parcellistC = $this->Parcellist->find()->where(['street like'=>'C%'])->orderAsc('street');
+        $parcellistD = $this->Parcellist->find()->where(['street like'=>'D%'])->orderAsc('street');
+        $parcellistE = $this->Parcellist->find()->where(['street like'=>'E%'])->orderAsc('street');
+        $parcellistF = $this->Parcellist->find()->where(['street like'=>'F%'])->orderAsc('street');
+        $parcellistG = $this->Parcellist->find()->where(['street like'=>'G%'])->orderAsc('street');
+        $parcellistH = $this->Parcellist->find()->where(['street like'=>'H%'])->orderAsc('street');
+        $parcellistI = $this->Parcellist->find()->where(['street like'=>'I%'])->orderAsc('street');
+        $parcellistJ = $this->Parcellist->find()->where(['street like'=>'J%'])->orderAsc('street');
+        $parcellistK = $this->Parcellist->find()->where(['street like'=>'K%'])->orderAsc('street');
+        $parcellistL = $this->Parcellist->find()->where(['street like'=>'L%'])->orderAsc('street');
+        $parcellistM = $this->Parcellist->find()->where(['street like'=>'M%'])->orderAsc('street');
+        $parcellistN = $this->Parcellist->find()->where(['street like'=>'N%'])->orderAsc('street');
+        $parcellistO = $this->Parcellist->find()->where(['street like'=>'O%'])->orderAsc('street');
+        $parcellistP = $this->Parcellist->find()->where(['street like'=>'P%'])->orderAsc('street');
+        $parcellistQ = $this->Parcellist->find()->where(['street like'=>'Q%'])->orderAsc('street');
+        $parcellistR = $this->Parcellist->find()->where(['street like'=>'R%'])->orderAsc('street');
+        $parcellistS = $this->Parcellist->find()->where(['street like'=>'S%'])->orderAsc('street');
+        $parcellistT = $this->Parcellist->find()->where(['street like'=>'T%'])->orderAsc('street');
+        $parcellistU = $this->Parcellist->find()->where(['street like'=>'U%'])->orderAsc('street');
+        $parcellistV = $this->Parcellist->find()->where(['street like'=>'V%'])->orderAsc('street');
+        $parcellistW = $this->Parcellist->find()->where(['street like'=>'W%'])->orderAsc('street');
+        $parcellistX = $this->Parcellist->find()->where(['street like'=>'X%'])->orderAsc('street');
+        $parcellistY = $this->Parcellist->find()->where(['street like'=>'Y%'])->orderAsc('street');
+        $parcellistZ = $this->Parcellist->find()->where(['street like'=>'Z%'])->orderAsc('street');
+
+        $this->set(compact('parcellist'));
+        $this->set(compact('parcellistA','parcellistB','parcellistC','parcellistD',
+            'parcellistE','parcellistF','parcellistG','parcellistH','parcellistI','parcellistJ','parcellistK',
+            'parcellistL','parcellistM','parcellistN','parcellistO','parcellistP','parcellistQ','parcellistR',
+            'parcellistS','parcellistT','parcellistU','parcellistV','parcellistW','parcellistX','parcellistY','parcellistZ'));
+    }
+
+    /**
      * Zone method
      *
      * @param string|null $word keyword.
@@ -146,7 +188,25 @@ class ParcellistController extends AppController
      */
     public function search($word=null)
     {
-        $parcellist = $this->Parcellist->find()->where(['street like'=>$word.'%'])->limit(15)->orderAsc('street');
+        $parcellist = $this->Parcellist->find()->where(['street like' =>'%'.$word.'%'])->limit(15)->orderAsc('street');
+        if (is_numeric(substr($word,0,1))){
+            $strnum = (int) filter_var($word, FILTER_SANITIZE_NUMBER_INT);
+            preg_match("/^[\w ]+$/i",$word,$result1);
+            preg_match("/^[\w]+$/i",$word,$result2);
+            if ($result1!=null){
+                $strname= substr($word,strlen($strnum)+1);
+            }
+            if ($result2!=null){
+                $strname = substr($word,strlen($strnum));
+            }
+            if($strnum%2==0){ //even
+                $parcellist = $this->Parcellist->find()->where(['street like' =>'%'.$strname.'%'])->
+                andWhere(['evenblimit<='.$strnum,'evenulimit>='.$strnum])->limit(15)->orderAsc('street');
+            }else{//odd
+                $parcellist = $this->Parcellist->find()->where(['street like' =>'%'.$strname.'%'])->
+                andWhere(['oddblimit<='.$strnum,'oddulimit>='.$strnum])->limit(15)->orderAsc('street');
+            }
+        }
 
         $this->set(compact('parcellist'));
     }
@@ -159,8 +219,8 @@ class ParcellistController extends AppController
     public function manage($word=null)
     {
         $parcellist = $this->Parcellist->find();
-        if ($word==0){
-            $parcellist = $this->Parcellist->find()->whereNull('driver');
+        if ($word!=null){
+            $parcellist = $this->Parcellist->find()->where(['driver'=>""]);
         }
 
         $this->set(compact('parcellist'));
