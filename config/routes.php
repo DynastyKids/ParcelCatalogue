@@ -63,13 +63,13 @@ Router::scope('/', function (RouteBuilder $routes) {
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
     $routes->connect('/', ['controller' => 'Parcellist', 'action' => 'index']);
-    $routes->connect('/search', ['controller' => 'Parcellist', 'action' => 'search']);
+    $routes->connect('/search/*', ['controller' => 'Parcellist', 'action' => 'search']);
     $routes->connect('/add', ['controller' => 'Parcellist', 'action' => 'add']);
-    $routes->connect('/zone0', ['controller' => 'Parcellist', 'action' => 'zone','0']);
-    $routes->connect('/zone1', ['controller' => 'Parcellist', 'action' => 'zone','1']);
-    $routes->connect('/zone2', ['controller' => 'Parcellist', 'action' => 'zone','2']);
+    $routes->connect('/zone/*', ['controller' => 'Parcellist', 'action' => 'zone']);
     $routes->connect('/manages', ['controller' => 'Parcellist', 'action' => 'manage']);
     $routes->connect('/unknowns', ['controller' => 'Parcellist', 'action' => 'manage','0']);
+    $routes->connect('/js/*', ['controller' => 'Parcellist', 'action' => 'searchjs']);
+    $routes->connect('/offline',['controller'=>'Parcellist','action'=>'offline']);
 
     /*
      * ...and connect the rest of 'Pages' controller's URLs.

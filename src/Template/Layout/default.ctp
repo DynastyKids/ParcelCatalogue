@@ -11,9 +11,8 @@
 </head>
 <body style="background-color: #212529!important;">
 
-<?= $this->fetch('content') ?>
 
+<?= $this->fetch('content') ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-<?php $this->Html->script('scripts.js')?>
 </body>
 </html>

@@ -211,6 +211,30 @@ class ParcellistController extends AppController
         $this->set(compact('parcellist'));
     }
 
+    public function searchjs($word=null){
+        $parcellist = $this->Parcellist->find()->where(['street like' =>'%'.$word.'%'])->orderAsc('street');
+        if (is_numeric(substr($word,0,1))){
+            $strnum = (int) filter_var($word, FILTER_SANITIZE_NUMBER_INT);
+            preg_match("/^[\w ]+$/i",$word,$result1);
+            preg_match("/^[\w]+$/i",$word,$result2);
+            if ($result1!=null){
+                $strname= substr($word,strlen($strnum)+1);
+            }
+            if ($result2!=null){
+                $strname = substr($word,strlen($strnum));
+            }
+            if($strnum%2==0){ //even
+                $parcellist = $this->Parcellist->find()->where(['street like' =>'%'.$strname.'%'])->
+                andWhere(['evenblimit<='.$strnum,'evenulimit>='.$strnum])->orderAsc('street');
+            }else{//odd
+                $parcellist = $this->Parcellist->find()->where(['street like' =>'%'.$strname.'%'])->
+                andWhere(['oddblimit<='.$strnum,'oddulimit>='.$strnum])->orderAsc('street');
+            }
+        }
+
+        $this->set(compact('parcellist'));
+    }
+
     /**
      * Manage method
      *
