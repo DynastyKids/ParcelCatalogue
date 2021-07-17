@@ -232,7 +232,11 @@ class ParcellistController extends AppController
             }
         }
 
-        $this->set(compact('parcellist'));
+        $this->autoLayout = false;
+        $this->render(false);
+        $this->response->body(json_encode(['Status'=>'00','Data'=>($parcellist)]));
+        $this->response->statusCode(200);
+        $this->response->type("application/json");
     }
 
     /**
