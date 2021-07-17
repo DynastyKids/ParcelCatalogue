@@ -11,8 +11,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 <!--                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>-->
-                <li class="nav-item"><a class="nav-link" href="/offline">Offline Mode</a></li>gi
-                <li class="nav-item"><a class="nav-link" aria-current="page" href="/add">Add missing street</a></li>
+                <li class="nav-item"><a class="nav-link" href="/offline">Offline Mode</a></li>
+                <li class="nav-item"><a class="nav-link" href="/add">Add missing street</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">By Zone</a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -33,10 +33,10 @@
     <form>
         <div class="input-group">
             <input id="searchinput" type="text" class="form-control" placeholder="在线模式可带街号搜索" onkeyup="showResult(this.value)">
-            <button type="button" class="btn bg-transparent" style="margin-left: -40px; z-index: 100;" onclick="document.getElementById('searchinput').value=''">
+            <button type="button" class="btn bg-transparent" style="margin-left: -40px; z-index: 100;" onclick="clearInput()">
                 <i class="fa fa-times"></i>
             </button>
-            <button type="button" class="btn btn-warning" style="width: 100px" onclick="document.getElementById('searchinput').value=''">
+            <button type="button" class="btn btn-warning" style="width: 100px" onclick="clearInput()">
                 Clear
             </button>
         </div>
@@ -421,5 +421,11 @@
     function topFunction() {
         document.body.scrollTop = 0; // For Safari
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+</script>
+<script>
+    function clearInput(){
+        document.getElementById('searchinput').value='';
+        document.getElementById('searchinput').focus();
     }
 </script>

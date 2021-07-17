@@ -89,9 +89,13 @@ echo $this->Html->css("https://cdn.datatables.net/1.10.25/css/jquery.dataTables.
         width: 100% !important;
     }
 
-    .form-control-sm{
-        width: 100%;
-        min-width:250px;
+    .dataTables_wrapper .dataTables_filter{
+        float: none !important;
+    }
+
+    .form-control{
+        width: 100% !important;
+        min-width:250px !important;
     }
 </style>
 
@@ -141,10 +145,7 @@ echo $this->Html->css("https://cdn.datatables.net/1.10.25/css/jquery.dataTables.
 <script>
     function clearall() {
         var elements = document.getElementsByTagName("input");
-        for (var ii = 0; ii < elements.length; ii++) {
-            if (elements[ii].type == "search") {
-                elements[ii].value = "";
-            }
-        }
+        elements[0].value = "";
+        elements[0].focus();
     }
 </script>
