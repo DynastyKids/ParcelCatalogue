@@ -22,12 +22,12 @@
                         <li><a class="dropdown-item" href=<?= $this->Url->build(['action'=>'manage','0'])?>>Unknown</a></li>
                     </ul>
                 </li>
+                <li class="nav-item"><a class="nav-link" href="#">Last Update : 17/07/21</a></li>
             </ul>
         </div>
     </div>
 </nav>
 <div class="container-fluid" style="min-width: 100%">
-    <small style="color:lightsteelblue">Data updated : 14/07/21 2000 AEST</small><br>
     <small style="color:lightsteelblue">Randwick 1: Cesar, Leo, Danny, Ivan, Chris, <span style="color: #1cc7ff">Peter, Mark</span></small><br>
     <small style="color:lightsteelblue">Randwick 2: Louis, Subash, Pramesh, Sean, Saruul, <span style="color: #1cc7ff">Derek</span></small>
     <form>

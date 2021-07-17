@@ -31,6 +31,7 @@ echo $this->Html->css("https://cdn.datatables.net/1.10.25/css/jquery.dataTables.
                                href=<?= $this->Url->build(['action' => 'manage', '0']) ?>>Unknown</a></li>
                     </ul>
                 </li>
+                <li class="nav-item"><a class="nav-link" href="#">Last Update : 17/07/21</a></li>
             </ul>
         </div>
     </div>
