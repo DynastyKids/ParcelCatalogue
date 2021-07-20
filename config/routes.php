@@ -67,9 +67,10 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/add', ['controller' => 'Parcellist', 'action' => 'add']);
     $routes->connect('/zone/*', ['controller' => 'Parcellist', 'action' => 'zone']);
     $routes->connect('/manages', ['controller' => 'Parcellist', 'action' => 'manage']);
-    $routes->connect('/unknowns', ['controller' => 'Parcellist', 'action' => 'manage','0']);
+    $routes->connect('/unknowns', ['controller' =>  'Parcellist', 'action' => 'manage','0']);
     $routes->connect('/js/*', ['controller' => 'Parcellist', 'action' => 'searchjs']);
     $routes->connect('/offline',['controller'=>'Parcellist','action'=>'offline']);
+    $routes->connect('/api2',['controller'=>'Parcellist','action'=>'api2']);
 
     /*
      * ...and connect the rest of 'Pages' controller's URLs.

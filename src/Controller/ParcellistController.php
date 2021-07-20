@@ -212,7 +212,7 @@ class ParcellistController extends AppController
     }
 
     public function searchjs($word=null){
-        $parcellist = $this->Parcellist->find()->where(['street like' =>'%'.$word.'%'])->orderAsc('street');
+        $parcellist = $this->Parcellist->find()->select(['id','street','driver','zone','suburb'])->where(['street like' =>'%'.$word.'%'])->orderAsc('street');
         if (is_numeric(substr($word,0,1))){
             $strnum = (int) filter_var($word, FILTER_SANITIZE_NUMBER_INT);
             preg_match("/^[\w ]+$/i",$word,$result1);
@@ -237,6 +237,13 @@ class ParcellistController extends AppController
         $this->response->body(json_encode(['Status'=>'00','Data'=>($parcellist)]));
         $this->response->statusCode(200);
         $this->response->type("application/json");
+    }
+
+    public function api2(){
+        $parcellist = $this->Parcellist->find()->orderAsc('street');
+        $parcelcount = $parcellist->count();
+        $parcelarray= $parcellist->toArray();
+        $this->set(compact('parcellist','parcelcount','parcelarray'));
     }
 
     /**
