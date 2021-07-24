@@ -71,7 +71,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/api', ['controller' => 'Parcellist', 'action' => 'searchjs']);
     $routes->connect('/offline',['controller'=>'Parcellist','action'=>'offline']);
     $routes->connect('/api2',['controller'=>'Parcellist','action'=>'api2']);
-    $routes->connect('/wechat',['controller'=>'Parcellist','action'=>'searchjs2']);
+    $routes->connect('/wechat',['controller'=>'Parcellist','action'=>'wechat']);
 
     /*
      * ...and connect the rest of 'Pages' controller's URLs.
