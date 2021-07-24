@@ -239,6 +239,15 @@ class ParcellistController extends AppController
         $this->response->type("application/json");
     }
 
+    public function wechat(){
+        $parcellist = $this->Parcellist->find()->orderAsc('street');
+        $this->autoLayout = false;
+        $this->render(false);
+        $this->response->body(json_encode(['Status'=>'00','Data'=>($parcellist)]));
+        $this->response->statusCode(200);
+        $this->response->type("application/json");
+    }
+
     public function api2(){
         $parcellist = $this->Parcellist->find()->orderAsc('street');
         $parcelcount = $parcellist->count();
