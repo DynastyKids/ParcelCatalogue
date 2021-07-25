@@ -41,9 +41,11 @@
         <?= $this->Form->control('street',['label'=>'Street Name:','type'=>'text','class'=>'form-control']);?>
         <br>
         <label for="driver">Driver Name:</label>
-        <?= $this->Form->select('driver',
-            ['Cesar'=>'Cesar','Ivan'=>'Ivan','Leo'=>'Leo','Danny'=>'Danny','Chris'=>'Chris','Mark'=>'Mark','Peter'=>'Peter','Louis'=>'Louis','Subash'=>'Subash','Pramesh'=>'Pramesh','Sean'=>'Sean','Saruul'=>'Saruul','Derek'=>'Derek']
-            ,['class'=>'form-control']);?>
+        <?php $options=[]?>
+        <?php for ($i=0;$i<$driverlist->count();$i++){
+           array_push($options,$driverlist->toArray()[$i]['drivername']);
+        }?>
+        <?php echo $this->Form->select('driver', $options,['class'=>'form-control']);?>
         <br>
         <?= $this->Form->control('suburb',['label'=>'Suburb Name:','type'=>'text','class'=>'form-control']);?>
         <br>

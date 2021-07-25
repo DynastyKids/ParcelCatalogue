@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\ORM\TableRegistry;
 
 /**
  * Parcellist Controller
@@ -19,6 +20,7 @@ class ParcellistController extends AppController
      */
     public function index()
     {
+        $driverlist = TableRegistry::getTableLocator()->get('drivers')->find();
         $parcellist = $this->Parcellist->find()->orderAsc('street');
         $parcellistA = $this->Parcellist->find()->where(['street like'=>'A%'])->orderAsc('street');
         $parcellistB = $this->Parcellist->find()->where(['street like'=>'B%'])->orderAsc('street');
@@ -48,6 +50,7 @@ class ParcellistController extends AppController
         $parcellistZ = $this->Parcellist->find()->where(['street like'=>'Z%'])->orderAsc('street');
 
         $this->set(compact('parcellist'));
+        $this->set(compact('driverlist'));
         $this->set(compact('parcellistA','parcellistB','parcellistC','parcellistD',
             'parcellistE','parcellistF','parcellistG','parcellistH','parcellistI','parcellistJ','parcellistK',
             'parcellistL','parcellistM','parcellistN','parcellistO','parcellistP','parcellistQ','parcellistR',
@@ -309,12 +312,14 @@ class ParcellistController extends AppController
         $parcellist = $this->Parcellist->get($id, [
             'contain' => [],
         ]);
+        $driverlist = TableRegistry::getTableLocator()->get('drivers')->find();
         if ($this->request->is(['patch', 'post', 'put'])) {
             $receivedData = $this->request->getData();
-            if($receivedData['driver']=='Cesar' || $receivedData['driver']=='Ivan' || $receivedData['driver']=='Leo' ||
-                $receivedData['driver']=='Danny' || $receivedData['driver']=='Chirs' || $receivedData['driver']=='Peter'
-                || $receivedData['driver']=='Mark'){$receivedData['zone']= "Randwick 1";}
-            else{$receivedData['zone']= "Randwick 2";}
+            $driverzone = $driverlist->where(['id'=>$receivedData['driver']+1]);
+            if($driverzone->count()>0){
+                $receivedData['driver']=$driverzone->toArray()[0]['drivername'];
+                $receivedData['zone']=$driverzone->toArray()[0]['zone'];
+            }
 
             $parcellist = $this->Parcellist->patchEntity($parcellist, $receivedData);
             if ($this->Parcellist->save($parcellist)) {
@@ -325,6 +330,7 @@ class ParcellistController extends AppController
             $this->Flash->error(__('The change could not be saved. Please, try again.'));
         }
         $this->set(compact('parcellist'));
+        $this->set(compact('driverlist'));
     }
 
     /**

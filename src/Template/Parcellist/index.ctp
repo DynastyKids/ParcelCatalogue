@@ -22,14 +22,29 @@
                         <li><a class="dropdown-item" href=<?= $this->Url->build(['action'=>'manage','0'])?>>Unknown</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="#">Last Update : 17/07/21</a></li>
             </ul>
         </div>
     </div>
 </nav>
 <div class="container-fluid" style="min-width: 100%">
-    <small style="color:lightsteelblue">Randwick 1: Cesar, Leo, Danny, Ivan, Chris, <span style="color: #1cc7ff">Peter, Mark</span></small><br>
-    <small style="color:lightsteelblue">Randwick 2: Louis, Subash, Pramesh, Sean, Saruul, <span style="color: #1cc7ff">Derek</span></small>
+    <?php
+        $zone1=[];
+        $zone2=[];
+        for($ii=0;$ii<$driverlist->count();$ii++){
+            if ($driverlist->toArray()[$ii]['zone'] == 1){
+                array_push($zone1,$driverlist->toArray()[$ii]['drivername']);
+            }
+            if ($driverlist->toArray()[$ii]['zone'] == 2){
+                array_push($zone2,$driverlist->toArray()[$ii]['drivername']);
+            }
+        }
+        ?>
+    <small style="color:lightsteelblue">Zone 1:
+        <?php for($ii=0;$ii<sizeof($zone1);$ii++){echo $zone1[$ii].", ";}?>
+    </small><br>
+    <small style="color:lightsteelblue">Zone 2:
+        <?php for($ii=0;$ii<sizeof($zone2);$ii++){echo $zone2[$ii].", ";}?>
+    </small><br>
     <form>
         <div class="input-group">
             <input id="searchinput" type="text" class="form-control" placeholder="在线模式可带街号搜索" onkeyup="showResult(this.value)">
