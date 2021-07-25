@@ -325,7 +325,7 @@ class ParcellistController extends AppController
             if ($this->Parcellist->save($parcellist)) {
                 $this->Flash->success(__('The changes has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'manage']);
             }
             $this->Flash->error(__('The change could not be saved. Please, try again.'));
         }
