@@ -27,17 +27,14 @@
     </div>
 </nav>
 
-
-
-<div class="drivers form large-9 medium-8 columns content">
+<div class="container" style="background-color: antiquewhite">
     <?= $this->Form->create($driver) ?>
     <fieldset>
         <legend><?= __('Add Driver') ?></legend>
-        <?php
-            echo $this->Form->control('drivername');
-            echo $this->Form->control('zone');
-        ?>
+        <?= $this->Form->control('drivername',['label'=>'Driver name:','class'=>'form-control']);?>
+        <label for="zone" class="col-form-label">Driver\'s Zone:</label>
+        <?= $this->Form->select('zone',[1=>1,2=>2],['label'=>'','class'=>'form-control']); ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button('Submit',['class'=>'btn btn-primary']) ?>
     <?= $this->Form->end() ?>
 </div>
