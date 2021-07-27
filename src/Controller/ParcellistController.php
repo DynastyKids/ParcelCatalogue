@@ -18,7 +18,7 @@ class ParcellistController extends AppController
      *
      * @return \Cake\Http\Response|null
      */
-    public function online()
+    public function index()
     {
         $driverlist = TableRegistry::getTableLocator()->get('drivers')->find();
         $parcellist = $this->Parcellist->find()->orderAsc('street');
@@ -62,43 +62,9 @@ class ParcellistController extends AppController
      *
      * @return \Cake\Http\Response|null
      */
-    public function index()
+    public function offline()
     {
-        $parcellist = $this->Parcellist->find()->orderAsc('street');
-        $parcellistA = $this->Parcellist->find()->where(['street like'=>'A%'])->orderAsc('street');
-        $parcellistB = $this->Parcellist->find()->where(['street like'=>'B%'])->orderAsc('street');
-        $parcellistC = $this->Parcellist->find()->where(['street like'=>'C%'])->orderAsc('street');
-        $parcellistD = $this->Parcellist->find()->where(['street like'=>'D%'])->orderAsc('street');
-        $parcellistE = $this->Parcellist->find()->where(['street like'=>'E%'])->orderAsc('street');
-        $parcellistF = $this->Parcellist->find()->where(['street like'=>'F%'])->orderAsc('street');
-        $parcellistG = $this->Parcellist->find()->where(['street like'=>'G%'])->orderAsc('street');
-        $parcellistH = $this->Parcellist->find()->where(['street like'=>'H%'])->orderAsc('street');
-        $parcellistI = $this->Parcellist->find()->where(['street like'=>'I%'])->orderAsc('street');
-        $parcellistJ = $this->Parcellist->find()->where(['street like'=>'J%'])->orderAsc('street');
-        $parcellistK = $this->Parcellist->find()->where(['street like'=>'K%'])->orderAsc('street');
-        $parcellistL = $this->Parcellist->find()->where(['street like'=>'L%'])->orderAsc('street');
-        $parcellistM = $this->Parcellist->find()->where(['street like'=>'M%'])->orderAsc('street');
-        $parcellistN = $this->Parcellist->find()->where(['street like'=>'N%'])->orderAsc('street');
-        $parcellistO = $this->Parcellist->find()->where(['street like'=>'O%'])->orderAsc('street');
-        $parcellistP = $this->Parcellist->find()->where(['street like'=>'P%'])->orderAsc('street');
-        $parcellistQ = $this->Parcellist->find()->where(['street like'=>'Q%'])->orderAsc('street');
-        $parcellistR = $this->Parcellist->find()->where(['street like'=>'R%'])->orderAsc('street');
-        $parcellistS = $this->Parcellist->find()->where(['street like'=>'S%'])->orderAsc('street');
-        $parcellistT = $this->Parcellist->find()->where(['street like'=>'T%'])->orderAsc('street');
-        $parcellistU = $this->Parcellist->find()->where(['street like'=>'U%'])->orderAsc('street');
-        $parcellistV = $this->Parcellist->find()->where(['street like'=>'V%'])->orderAsc('street');
-        $parcellistW = $this->Parcellist->find()->where(['street like'=>'W%'])->orderAsc('street');
-        $parcellistX = $this->Parcellist->find()->where(['street like'=>'X%'])->orderAsc('street');
-        $parcellistY = $this->Parcellist->find()->where(['street like'=>'Y%'])->orderAsc('street');
-        $parcellistZ = $this->Parcellist->find()->where(['street like'=>'Z%'])->orderAsc('street');
-        $driverlist = TableRegistry::getTableLocator()->get('drivers')->find();
-
-        $this->set(compact('driverlist'));
-        $this->set(compact('parcellist'));
-        $this->set(compact('parcellistA','parcellistB','parcellistC','parcellistD',
-            'parcellistE','parcellistF','parcellistG','parcellistH','parcellistI','parcellistJ','parcellistK',
-            'parcellistL','parcellistM','parcellistN','parcellistO','parcellistP','parcellistQ','parcellistR',
-            'parcellistS','parcellistT','parcellistU','parcellistV','parcellistW','parcellistX','parcellistY','parcellistZ'));
+        $this->redirect('https://mascot.testingstar.top');
     }
 
     /**

@@ -68,7 +68,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/manages', ['controller' => 'Parcellist', 'action' => 'manage']);
     $routes->connect('/unknowns', ['controller' =>  'Parcellist', 'action' => 'manage','0']);
     $routes->connect('/api', ['controller' => 'Parcellist', 'action' => 'api']);
-    $routes->connect('/online',['controller'=>'Parcellist','action'=>'online']);
+    $routes->connect('/offline',['controller'=>'Parcellist','action'=>'offline']);
     $routes->connect('/wechat',['controller'=>'Parcellist','action'=>'wechat']);
 
     /*

@@ -13,42 +13,35 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link" aria-current="page" href="/add">Add missing street</a></li>
-                <li class="nav-item"><a class="nav-link" aria-current="page" href="<?= $this->Url->build(['action'=>'add'])?>">Add new driver</a></li>
-                <li class="nav-item"><a class="nav-link" aria-current="page" href="/online">Online Mode</a></li>
+                <li class="nav-item"><a class="nav-link" aria-current="page" href="/drivers/add">Add new driver</a></li>
+                <li class="nav-item"><a class="nav-link" aria-current="page" href="/offline">Offline Mode</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
-
-<div class="drivers index large-9 medium-8 columns content">
-    <h3><?= __('Drivers') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+<div class="columns container">
+    <button onclick="clearall()" class="btn btn-primary" style="min-width: 100%">Clear input</button>
+    <table class="table table-striped table-dark" id="myTable" style="background-color:black; min-width: 100%">
         <thead>
-            <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('drivername') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('zone') ?></th>
-            </tr>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Driver</th>
+            <th scope="col">Zone</th>
+            <th scope="col" class="actions"><?= __('Actions') ?></th>
+        </tr>
         </thead>
         <tbody>
-            <?php foreach ($drivers as $driver): ?>
+        <?php foreach ($drivers as $driver): ?>
             <tr>
                 <td><?= $this->Number->format($driver->id) ?></td>
                 <td><?= h($driver->drivername) ?></td>
                 <td><?= h($driver->zone) ?></td>
+                <td class="actions">
+                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $driver->id]) ?>
+                </td>
             </tr>
-            <?php endforeach; ?>
+        <?php endforeach; ?>
         </tbody>
     </table>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
-    </div>
 </div>
