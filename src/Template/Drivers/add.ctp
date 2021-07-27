@@ -4,12 +4,6 @@
  * @var \App\Model\Entity\Driver $driver
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Drivers'), ['action' => 'index']) ?></li>
-    </ul>
-</nav>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="/">Adding new driver</a>
