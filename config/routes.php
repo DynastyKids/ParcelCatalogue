@@ -65,7 +65,6 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/', ['controller' => 'Parcellist', 'action' => 'index']);
     $routes->connect('/search/*', ['controller' => 'Parcellist', 'action' => 'search']);
     $routes->connect('/add', ['controller' => 'Parcellist', 'action' => 'add']);
-    $routes->connect('/zone/*', ['controller' => 'Parcellist', 'action' => 'zone']);
     $routes->connect('/manages', ['controller' => 'Parcellist', 'action' => 'manage']);
     $routes->connect('/unknowns', ['controller' =>  'Parcellist', 'action' => 'manage','0']);
     $routes->connect('/api', ['controller' => 'Parcellist', 'action' => 'api']);

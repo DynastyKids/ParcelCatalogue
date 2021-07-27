@@ -91,96 +91,14 @@ class ParcellistController extends AppController
         $parcellistX = $this->Parcellist->find()->where(['street like'=>'X%'])->orderAsc('street');
         $parcellistY = $this->Parcellist->find()->where(['street like'=>'Y%'])->orderAsc('street');
         $parcellistZ = $this->Parcellist->find()->where(['street like'=>'Z%'])->orderAsc('street');
+        $driverlist = TableRegistry::getTableLocator()->get('drivers')->find();
 
+        $this->set(compact('driverlist'));
         $this->set(compact('parcellist'));
         $this->set(compact('parcellistA','parcellistB','parcellistC','parcellistD',
             'parcellistE','parcellistF','parcellistG','parcellistH','parcellistI','parcellistJ','parcellistK',
             'parcellistL','parcellistM','parcellistN','parcellistO','parcellistP','parcellistQ','parcellistR',
             'parcellistS','parcellistT','parcellistU','parcellistV','parcellistW','parcellistX','parcellistY','parcellistZ'));
-    }
-
-    /**
-     * Zone method
-     *
-     * @param string|null $word keyword.
-     * @return \Cake\Http\Response|null
-     */
-    public function zone($zone=null)
-    {
-        $parcellist = $this->Parcellist->find();
-        debug($zone);
-        if($zone==1){
-            $parcellist = $this->Parcellist->find()->where(['zone like'=>'%1'])->orderAsc('street');
-            $parcellistA = $this->Parcellist->find()->where(['street like'=>'A%', 'zone like'=>'%1'])->orderAsc('street');
-            $parcellistB = $this->Parcellist->find()->where(['street like'=>'B%', 'zone like'=>'%1'])->orderAsc('street');
-            $parcellistC = $this->Parcellist->find()->where(['street like'=>'C%', 'zone like'=>'%1'])->orderAsc('street');
-            $parcellistD = $this->Parcellist->find()->where(['street like'=>'D%', 'zone like'=>'%1'])->orderAsc('street');
-            $parcellistE = $this->Parcellist->find()->where(['street like'=>'E%', 'zone like'=>'%1'])->orderAsc('street');
-            $parcellistF = $this->Parcellist->find()->where(['street like'=>'F%', 'zone like'=>'%1'])->orderAsc('street');
-            $parcellistG = $this->Parcellist->find()->where(['street like'=>'G%', 'zone like'=>'%1'])->orderAsc('street');
-            $parcellistH = $this->Parcellist->find()->where(['street like'=>'H%', 'zone like'=>'%1'])->orderAsc('street');
-            $parcellistI = $this->Parcellist->find()->where(['street like'=>'I%', 'zone like'=>'%1'])->orderAsc('street');
-            $parcellistJ = $this->Parcellist->find()->where(['street like'=>'J%', 'zone like'=>'%1'])->orderAsc('street');
-            $parcellistK = $this->Parcellist->find()->where(['street like'=>'K%', 'zone like'=>'%1'])->orderAsc('street');
-            $parcellistL = $this->Parcellist->find()->where(['street like'=>'L%', 'zone like'=>'%1'])->orderAsc('street');
-            $parcellistM = $this->Parcellist->find()->where(['street like'=>'M%', 'zone like'=>'%1'])->orderAsc('street');
-            $parcellistN = $this->Parcellist->find()->where(['street like'=>'N%', 'zone like'=>'%1'])->orderAsc('street');
-            $parcellistO = $this->Parcellist->find()->where(['street like'=>'O%', 'zone like'=>'%1'])->orderAsc('street');
-            $parcellistP = $this->Parcellist->find()->where(['street like'=>'P%', 'zone like'=>'%1'])->orderAsc('street');
-            $parcellistQ = $this->Parcellist->find()->where(['street like'=>'Q%', 'zone like'=>'%1'])->orderAsc('street');
-            $parcellistR = $this->Parcellist->find()->where(['street like'=>'R%', 'zone like'=>'%1'])->orderAsc('street');
-            $parcellistS = $this->Parcellist->find()->where(['street like'=>'S%', 'zone like'=>'%1'])->orderAsc('street');
-            $parcellistT = $this->Parcellist->find()->where(['street like'=>'T%', 'zone like'=>'%1'])->orderAsc('street');
-            $parcellistU = $this->Parcellist->find()->where(['street like'=>'U%', 'zone like'=>'%1'])->orderAsc('street');
-            $parcellistV = $this->Parcellist->find()->where(['street like'=>'V%', 'zone like'=>'%1'])->orderAsc('street');
-            $parcellistW = $this->Parcellist->find()->where(['street like'=>'W%', 'zone like'=>'%1'])->orderAsc('street');
-            $parcellistX = $this->Parcellist->find()->where(['street like'=>'X%', 'zone like'=>'%1'])->orderAsc('street');
-            $parcellistY = $this->Parcellist->find()->where(['street like'=>'Y%', 'zone like'=>'%1'])->orderAsc('street');
-            $parcellistZ = $this->Parcellist->find()->where(['street like'=>'Z%', 'zone like'=>'%1'])->orderAsc('street');
-            $this->set(compact('parcellistA','parcellistB','parcellistC','parcellistD',
-            'parcellistE','parcellistF','parcellistG','parcellistH','parcellistI','parcellistJ','parcellistK',
-            'parcellistL','parcellistM','parcellistN','parcellistO','parcellistP','parcellistQ','parcellistR',
-            'parcellistS','parcellistT','parcellistU','parcellistV','parcellistW','parcellistX','parcellistY','parcellistZ'));
-        }else if($zone==2){
-            $parcellist = $this->Parcellist->find()->where(['zone'=>'Randwick 2'])->orderAsc('street');
-            $parcellist = $this->Parcellist->find()->where(['zone like'=>'%2'])->orderAsc('street');
-            $parcellistA = $this->Parcellist->find()->where(['street like'=>'A%', 'zone like'=>'%2'])->orderAsc('street');
-            $parcellistB = $this->Parcellist->find()->where(['street like'=>'B%', 'zone like'=>'%2'])->orderAsc('street');
-            $parcellistC = $this->Parcellist->find()->where(['street like'=>'C%', 'zone like'=>'%2'])->orderAsc('street');
-            $parcellistD = $this->Parcellist->find()->where(['street like'=>'D%', 'zone like'=>'%2'])->orderAsc('street');
-            $parcellistE = $this->Parcellist->find()->where(['street like'=>'E%', 'zone like'=>'%2'])->orderAsc('street');
-            $parcellistF = $this->Parcellist->find()->where(['street like'=>'F%', 'zone like'=>'%2'])->orderAsc('street');
-            $parcellistG = $this->Parcellist->find()->where(['street like'=>'G%', 'zone like'=>'%2'])->orderAsc('street');
-            $parcellistH = $this->Parcellist->find()->where(['street like'=>'H%', 'zone like'=>'%2'])->orderAsc('street');
-            $parcellistI = $this->Parcellist->find()->where(['street like'=>'I%', 'zone like'=>'%2'])->orderAsc('street');
-            $parcellistJ = $this->Parcellist->find()->where(['street like'=>'J%', 'zone like'=>'%2'])->orderAsc('street');
-            $parcellistK = $this->Parcellist->find()->where(['street like'=>'K%', 'zone like'=>'%2'])->orderAsc('street');
-            $parcellistL = $this->Parcellist->find()->where(['street like'=>'L%', 'zone like'=>'%2'])->orderAsc('street');
-            $parcellistM = $this->Parcellist->find()->where(['street like'=>'M%', 'zone like'=>'%2'])->orderAsc('street');
-            $parcellistN = $this->Parcellist->find()->where(['street like'=>'N%', 'zone like'=>'%2'])->orderAsc('street');
-            $parcellistO = $this->Parcellist->find()->where(['street like'=>'O%', 'zone like'=>'%2'])->orderAsc('street');
-            $parcellistP = $this->Parcellist->find()->where(['street like'=>'P%', 'zone like'=>'%2'])->orderAsc('street');
-            $parcellistQ = $this->Parcellist->find()->where(['street like'=>'Q%', 'zone like'=>'%2'])->orderAsc('street');
-            $parcellistR = $this->Parcellist->find()->where(['street like'=>'R%', 'zone like'=>'%2'])->orderAsc('street');
-            $parcellistS = $this->Parcellist->find()->where(['street like'=>'S%', 'zone like'=>'%2'])->orderAsc('street');
-            $parcellistT = $this->Parcellist->find()->where(['street like'=>'T%', 'zone like'=>'%2'])->orderAsc('street');
-            $parcellistU = $this->Parcellist->find()->where(['street like'=>'U%', 'zone like'=>'%2'])->orderAsc('street');
-            $parcellistV = $this->Parcellist->find()->where(['street like'=>'V%', 'zone like'=>'%2'])->orderAsc('street');
-            $parcellistW = $this->Parcellist->find()->where(['street like'=>'W%', 'zone like'=>'%2'])->orderAsc('street');
-            $parcellistX = $this->Parcellist->find()->where(['street like'=>'X%', 'zone like'=>'%2'])->orderAsc('street');
-            $parcellistY = $this->Parcellist->find()->where(['street like'=>'Y%', 'zone like'=>'%2'])->orderAsc('street');
-            $parcellistZ = $this->Parcellist->find()->where(['street like'=>'Z%', 'zone like'=>'%2'])->orderAsc('street');
-            $this->set(compact('parcellistA','parcellistB','parcellistC','parcellistD',
-                'parcellistE','parcellistF','parcellistG','parcellistH','parcellistI','parcellistJ','parcellistK',
-                'parcellistL','parcellistM','parcellistN','parcellistO','parcellistP','parcellistQ','parcellistR',
-                'parcellistS','parcellistT','parcellistU','parcellistV','parcellistW','parcellistX','parcellistY','parcellistZ'));
-        } else if ($zone==0){
-            $parcellist = $this->Parcellist->find()->whereNull('driver')->orderAsc('street');
-        } else {
-            $this->redirect('/');
-        }
-        $this->set(compact('parcellist'));
-        $this->set(compact('zone'));
     }
 
     /**
@@ -240,6 +158,9 @@ class ParcellistController extends AppController
         $this->response->body(json_encode(['Status'=>'00','Data'=>($parcellist)]));
         $this->response->statusCode(200);
         $this->response->type("application/json");
+        $this->response->header('Access-Control-Allow-Origin','*');
+        $this->response->header('Access-Control-Allow-Methods','*');
+        $this->response->header('Access-Control-Max-Age','172800');
     }
 
     public function wechat(){
