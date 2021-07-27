@@ -32,7 +32,7 @@
     <fieldset>
         <legend><?= __('Add Driver') ?></legend>
         <?= $this->Form->control('drivername',['label'=>'Driver name:','class'=>'form-control']);?>
-        <label for="zone" class="col-form-label">Driver\'s Zone:</label>
+        <label for="zone" class="col-form-label">Driver's Zone:</label>
         <?= $this->Form->select('zone',[1=>1,2=>2],['label'=>'','class'=>'form-control']); ?>
     </fieldset>
     <?= $this->Form->button('Submit',['class'=>'btn btn-primary']) ?>
