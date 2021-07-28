@@ -177,6 +177,9 @@ class ParcellistController extends AppController
             }
             $this->Flash->error(__('New street could not be saved. Please, try again.'));
         }
+        $driverlist = TableRegistry::getTableLocator()->get('drivers')->find();
+
+        $this->set(compact('driverlist'));
         $this->set(compact('parcellist'));
     }
 

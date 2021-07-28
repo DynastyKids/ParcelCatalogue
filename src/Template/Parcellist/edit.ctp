@@ -12,21 +12,13 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="/offline">Offline Mode</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/manages">Manage lists</a></li>
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="/add">Add missing street</a></li>
             </ul>
         </div>
     </div>
 </nav>
 <div class="container" style="background-color: antiquewhite">
-    <li class="heading"><?= __('Actions') ?></li>
-    <li><?= $this->Form->postLink(
-            __('Delete'),
-            ['action' => 'delete', $parcellist->street],
-            ['confirm' => __('Are you sure you want to delete \' {0} \'?', $parcellist->street)]
-        )
-        ?></li>
-    <li><?= $this->Html->link(__('Back to list'), ['action' => 'index']) ?></li>
-
     <?= $this->Form->create($parcellist) ?>
     <fieldset>
         <legend><?= __('Edit Street Details') ?></legend>
@@ -39,7 +31,21 @@
         }?>
         <?php echo $this->Form->select('driver', $options,['class'=>'form-control']);?>
         <br>
-        <?= $this->Form->control('suburb',['label'=>'Suburb Name:','type'=>'text','class'=>'form-control']);?>
+        <label for="suburb" class="col-form-label">Suburbs:</label>
+        <?php $suburbs = ['Clovelly','Coogee','Daceyville','Kingsford','Randwick','South Coogee','St Pauls'];?>
+        <?= $this->Form->select('suburb',$suburbs,['label'=>'Suburb Name','type'=>'text','class'=>'form-control']);?>
+        <br>
+        <label class="col-form-label">Odd Number Range:</label><br>
+        <div class="row">
+            <div class="col-3"><?= $this->Form->control('oddblimit',['label'=>'From','type'=>'number','class'=>'form-control','style'=>'max-width:100px','default'=>1])?></div>
+            <div class="col-3"><?= $this->Form->control('oddulimit',['label'=>'To:','type'=>'number','class'=>'form-control','style'=>'max-width:100px','default'=>999])?></div>
+        </div>
+        <br>
+        <div class="row">
+            <label class="col-form-label">Even Number Range</label>
+            <div class="col-3"><?= $this->Form->control('evenblimit',['label'=>'From:','type'=>'number','class'=>'form-control col-sm-2','style'=>'max-width:100px','default'=>2])?></div>
+            <div class="col-3"><?= $this->Form->control('evenulimit',['label'=>'To:','type'=>'number','class'=>'form-control col-sm-2','style'=>'max-width:100px','default'=>998])?></div>
+        </div>
         <br>
         <?= $this->Form->hidden('zone',['label'=>'Zone Name:','type'=>'text','class'=>'form-control','value'=>'randwick']);?>
     </fieldset>
