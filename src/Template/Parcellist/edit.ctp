@@ -32,7 +32,7 @@
         <?php echo $this->Form->select('driver', $options,['class'=>'form-control']);?>
         <br>
         <label for="suburb" class="col-form-label">Suburbs:</label>
-        <?php $suburbs = ['Clovelly','Coogee','Daceyville','Kingsford','Randwick','South Coogee','St Pauls'];?>
+<!--        --><?php //$suburbs = ['Clovelly','Coogee','Daceyville','Kingsford','Randwick','South Coogee','St Pauls'];?>
         <?= $this->Form->select('suburb',$suburbs,['label'=>'Suburb Name','type'=>'text','class'=>'form-control']);?>
         <br>
         <label class="col-form-label">Odd Number Range:</label><br>

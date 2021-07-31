@@ -161,12 +161,16 @@ class ParcellistController extends AppController
     public function add()
     {
         $parcellist = $this->Parcellist->newEntity();
+        $driverlist = TableRegistry::getTableLocator()->get('drivers')->find();
+        $suburbs = ['Clovelly','Coogee','Daceyville','Kingsford','Randwick','South Coogee','St Pauls'];
         if ($this->request->is('post')) {
             $receivedData = $this->request->getData();
-            if($receivedData['driver']=='Cesar' || $receivedData['driver']=='Ivan' || $receivedData['driver']=='Leo' ||
-                $receivedData['driver']=='Danny' || $receivedData['driver']=='Chirs' || $receivedData['driver']=='Peter'
-            || $receivedData['driver']=='Mark'){$receivedData['zone']= "Randwick 1";}
-            else{$receivedData['zone']= "Randwick 2";}
+            $driverzone = $driverlist->where(['id'=>$receivedData['driver']+1]);
+            if($driverzone->count()>0){
+                $receivedData['driver']=$driverzone->toArray()[0]['drivername'];
+                $receivedData['zone']=$driverzone->toArray()[0]['zone'];
+            }
+            $receivedData['suburb'] = $suburbs[$this->request->getData()['suburb']];
 
             $parcellist = $this->Parcellist->patchEntity($parcellist, $receivedData);
 
@@ -177,8 +181,8 @@ class ParcellistController extends AppController
             }
             $this->Flash->error(__('New street could not be saved. Please, try again.'));
         }
-        $driverlist = TableRegistry::getTableLocator()->get('drivers')->find();
 
+        $this->set(compact('suburbs'));
         $this->set(compact('driverlist'));
         $this->set(compact('parcellist'));
     }
@@ -195,6 +199,7 @@ class ParcellistController extends AppController
         $parcellist = $this->Parcellist->get($id, [
             'contain' => [],
         ]);
+        $suburbs = ['Clovelly','Coogee','Daceyville','Kingsford','Randwick','South Coogee','St Pauls'];
         $driverlist = TableRegistry::getTableLocator()->get('drivers')->find();
         if ($this->request->is(['patch', 'post', 'put'])) {
             $receivedData = $this->request->getData();
@@ -203,6 +208,7 @@ class ParcellistController extends AppController
                 $receivedData['driver']=$driverzone->toArray()[0]['drivername'];
                 $receivedData['zone']=$driverzone->toArray()[0]['zone'];
             }
+            $receivedData['suburb'] = $suburbs[$this->request->getData()['suburb']];
 
             $parcellist = $this->Parcellist->patchEntity($parcellist, $receivedData);
             if ($this->Parcellist->save($parcellist)) {
@@ -212,6 +218,7 @@ class ParcellistController extends AppController
             }
             $this->Flash->error(__('The change could not be saved. Please, try again.'));
         }
+        $this->set(compact('suburbs'));
         $this->set(compact('parcellist'));
         $this->set(compact('driverlist'));
     }
