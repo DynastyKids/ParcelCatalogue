@@ -9,6 +9,7 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $drivername
  * @property string|null $zone
+ * @property int|null $active
  */
 class Driver extends Entity
 {
@@ -24,5 +25,6 @@ class Driver extends Entity
     protected $_accessible = [
         'drivername' => true,
         'zone' => true,
+        'active' => true,
     ];
 }

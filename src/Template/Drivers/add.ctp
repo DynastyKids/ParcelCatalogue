@@ -14,8 +14,7 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link" aria-current="page" href="/">Home</a></li>
                 <li class="nav-item"><a class="nav-link" aria-current="page" href="/drivers">Show all drivers</a></li>
-                <li class="nav-item"><a class="nav-link" aria-current="page" href="/add">Add missing street</a></li>
-                <li class="nav-item"><a class="nav-link" aria-current="page" href="/offline">Offline Mode</a></li>
+                <li class="nav-item"><a class="nav-link" aria-current="page" href="/add">Add new street</a></li>
             </ul>
         </div>
     </div>
@@ -28,6 +27,7 @@
         <?= $this->Form->control('drivername',['label'=>'Driver name:','class'=>'form-control']);?>
         <label for="zone" class="col-form-label">Driver's Zone:</label>
         <?= $this->Form->select('zone',[1=>1,2=>2],['label'=>'','class'=>'form-control']); ?>
+        <br><br>
     </fieldset>
     <?= $this->Form->button('Submit',['class'=>'btn btn-primary']) ?>
     <?= $this->Form->end() ?>

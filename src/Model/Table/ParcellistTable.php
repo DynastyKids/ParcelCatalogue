@@ -48,6 +48,11 @@ class ParcellistTable extends Table
             ->allowEmptyString('id', null, 'create');
 
         $validator
+            ->scalar('streetname')
+            ->maxLength('streetname', 255)
+            ->allowEmptyString('streetname');
+
+        $validator
             ->scalar('street')
             ->maxLength('street', 255)
             ->requirePresence('street', 'create')

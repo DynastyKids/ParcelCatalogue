@@ -17,6 +17,8 @@ echo $this->Html->script("datatables.min.js")
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
                 <li class="nav-item"><a class="nav-link" aria-current="page" href="/offline">Offline Mode</a></li>
+                <li class="nav-item"><a class="nav-link" aria-current="page" href="/add">Add new street</a></li>
+                <li class="nav-item"><a class="nav-link" aria-current="page" href="/drivers/add">Add new driver</a></li>
             </ul>
         </div>
     </div>
@@ -40,6 +42,7 @@ echo $this->Html->script("datatables.min.js")
                 <td><?= h($parcellist->driver) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcellist->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcellist->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcellist->id)]) ?>
                 </td>
             </tr>
         <?php endforeach; ?>

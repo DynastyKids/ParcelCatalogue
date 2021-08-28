@@ -7,6 +7,7 @@ use Cake\ORM\Entity;
  * Parcellist Entity
  *
  * @property int $id
+ * @property string|null $streetname
  * @property string $street
  * @property string|null $driver
  * @property string|null $zone
@@ -28,6 +29,7 @@ class Parcellist extends Entity
      * @var array
      */
     protected $_accessible = [
+        'streetname' => true,
         'street' => true,
         'driver' => true,
         'zone' => true,

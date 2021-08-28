@@ -43,4 +43,26 @@ class DriversController extends AppController
         }
         $this->set(compact('driver'));
     }
+
+    /**
+     * Active method
+     *
+     * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
+     */
+    public function active($id = null)
+    {
+        $driver = $this->Drivers->get($id,[
+            'contain'=>[],
+        ]);
+        if ($driver->active ==1 ){
+            $driver->active=0;
+        } else {
+            $driver->active=1;
+        }
+        if ($this->Drivers->save($driver)) {
+            $this->Flash->success(__('Driver status has been changed.'));
+        }
+
+        $this->set(compact('driver'));
+    }
 }

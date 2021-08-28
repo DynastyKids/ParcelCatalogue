@@ -161,8 +161,8 @@ class ParcellistController extends AppController
     public function add()
     {
         $parcellist = $this->Parcellist->newEntity();
-        $driverlist = TableRegistry::getTableLocator()->get('drivers')->find();
-        $suburbs = ['Clovelly','Coogee','Daceyville','Kingsford','Randwick','South Coogee','St Pauls'];
+        $driverlist = TableRegistry::getTableLocator()->get('drivers')->find()->where(['active'=>1]);
+        $suburbs = ['Clovelly','Clovelly West','Coogee','Daceyville','Kingsford','Randwick','South Coogee','St Pauls','Maroubra(MiscSort)','Kensington(MiscSort)','Other MiscSort'];
         if ($this->request->is('post')) {
             $receivedData = $this->request->getData();
             $driverzone = $driverlist->where(['id'=>$receivedData['driver']+1]);
@@ -170,16 +170,28 @@ class ParcellistController extends AppController
                 $receivedData['driver']=$driverzone->toArray()[0]['drivername'];
                 $receivedData['zone']=$driverzone->toArray()[0]['zone'];
             }
-            $receivedData['suburb'] = $suburbs[$this->request->getData()['suburb']];
 
-            $parcellist = $this->Parcellist->patchEntity($parcellist, $receivedData);
-
-            if ($this->Parcellist->save($parcellist)) {
-                $this->Flash->success(__('New street has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
+            if ($receivedData['oddblimit']==1 && $receivedData['oddulimit'] == 999 && $receivedData['evenblimit']==2 && $receivedData['evenulimit']==998 ){
+                // Full Street
+                $receivedData['street'] = $receivedData['streetname'];
+            } else if($receivedData['oddblimit'] >1 && $receivedData['oddulimit'] == 999 && $receivedData['evenblimit']>2 && $receivedData['oddulimit']==998){
+                $receivedData['street'] = $receivedData['streetname']." (from ".$receivedData['oddblimit'].", ".$receivedData['evenblimit'].")";
+            } else if($receivedData['oddblimit'] == 0 && $receivedData['oddulimit'] == 0 && $receivedData['evenblimit']>=2){
+                $receivedData['street'] = $receivedData['streetname']." (Even Only:".$receivedData['evenblimit']."-".$receivedData['evenulimit'].")";
+            } else if($receivedData['evenblimit'] == 0 && $receivedData['evenulimit'] == 0  && $receivedData['oddblimit']>=1){
+                $receivedData['street'] = $receivedData['streetname']." (Odd Only:".$receivedData['oddblimit']."-".$receivedData['oddulimit'].")";
+            } else if($receivedData['oddulimit']==$receivedData['oddblimit'] && $receivedData['evenulimit']==$receivedData['evenblimit']){
+                // Skipped Fixed Address
+                $receivedData['street'] = $receivedData['streetname'];
+            } else{
+                $receivedData['street'] = $receivedData['streetname']." (".$receivedData['oddblimit']."-".$receivedData['oddulimit'].", ".$receivedData['evenblimit']."-".$receivedData['evenulimit'].")";
             }
-            $this->Flash->error(__('New street could not be saved. Please, try again.'));
+            $parcellist = $this->Parcellist->patchEntity($parcellist, $receivedData);
+            if ($this->Parcellist->save($parcellist)) {
+                $this->Flash->success(__($receivedData['street'].' assign to '.$receivedData['driver'].'. has been saved.'));
+                return $this->redirect(['action' => 'manage']);
+            }
+            $this->Flash->error(__('There are some error happens on server.'));
         }
 
         $this->set(compact('suburbs'));
@@ -199,24 +211,40 @@ class ParcellistController extends AppController
         $parcellist = $this->Parcellist->get($id, [
             'contain' => [],
         ]);
-        $suburbs = ['Clovelly','Coogee','Daceyville','Kingsford','Randwick','South Coogee','St Pauls'];
-        $driverlist = TableRegistry::getTableLocator()->get('drivers')->find();
+        $suburbs = ['Clovelly','Clovelly West','Coogee','Daceyville','Kingsford','Randwick','South Coogee','St Pauls','Maroubra(MiscSort)','Kensington(MiscSort)','Other MiscSort'];
+        $driverlist = TableRegistry::getTableLocator()->get('drivers')->find()->where(['active'=>1]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $receivedData = $this->request->getData();
-            $driverzone = $driverlist->where(['id'=>$receivedData['driver']+1]);
-            if($driverzone->count()>0){
-                $receivedData['driver']=$driverzone->toArray()[0]['drivername'];
-                $receivedData['zone']=$driverzone->toArray()[0]['zone'];
+            if($receivedData['ndriver']>0) {
+                $driverzone = $driverlist->where(['id' => $receivedData['ndriver']]);
+                if ($driverzone->count() > 0) {
+                    $receivedData['driver'] = $driverzone->toArray()[0]['drivername'];
+                    $receivedData['zone'] = $driverzone->toArray()[0]['zone'];
+                }
             }
-            $receivedData['suburb'] = $suburbs[$this->request->getData()['suburb']];
-
+            debug($receivedData);
+            if ($receivedData['oddblimit']==1 && $receivedData['oddulimit'] == 999 && $receivedData['evenblimit']==2 && $receivedData['evenulimit']==998 ){
+                // Full Street
+                $receivedData['street'] = $receivedData['streetname'];
+            } else if($receivedData['oddblimit'] >1 && $receivedData['oddulimit'] == 999 && $receivedData['evenblimit']>2 && $receivedData['oddulimit']==998){
+                $receivedData['street'] = $receivedData['streetname']." (from ".$receivedData['oddblimit'].", ".$receivedData['evenblimit'].")";
+            } else if($receivedData['oddblimit'] == 0 && $receivedData['oddulimit'] == 0 && $receivedData['evenblimit']>=2){
+                $receivedData['street'] = $receivedData['streetname']." (Even Only:".$receivedData['evenblimit']."-".$receivedData['evenulimit'].")";
+            } else if($receivedData['evenblimit'] == 0 && $receivedData['evenulimit'] == 0  && $receivedData['oddblimit']>=1){
+                $receivedData['street'] = $receivedData['streetname']." (Odd Only:".$receivedData['oddblimit']."-".$receivedData['oddulimit'].")";
+            } else if($receivedData['oddulimit']==$receivedData['oddblimit'] && $receivedData['evenulimit']==$receivedData['evenblimit']){
+                // Skipped Fixed Address
+                $receivedData['street'] = $receivedData['streetname'];
+            } else{
+                $receivedData['street'] = $receivedData['streetname']." (".$receivedData['oddblimit']."-".$receivedData['oddulimit'].", ".$receivedData['evenblimit']."-".$receivedData['evenulimit'].")";
+            }
             $parcellist = $this->Parcellist->patchEntity($parcellist, $receivedData);
             if ($this->Parcellist->save($parcellist)) {
-                $this->Flash->success(__('The changes has been saved.'));
+                $this->Flash->success(__('The change for '.$receivedData['streetname'].' has been saved.'));
 
                 return $this->redirect(['action' => 'manage']);
             }
-            $this->Flash->error(__('The change could not be saved. Please, try again.'));
+            $this->Flash->error(__('The change for '.$receivedData['streetname'].' could not be saved. Please try again.'));
         }
         $this->set(compact('suburbs'));
         $this->set(compact('parcellist'));
@@ -235,9 +263,9 @@ class ParcellistController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $parcellist = $this->Parcellist->get($id);
         if ($this->Parcellist->delete($parcellist)) {
-            $this->Flash->success(__('The item has been deleted.'));
+            $this->Flash->success(__('('.$parcellist->street.') has been deleted.'));
         } else {
-            $this->Flash->error(__('The item could not be deleted. Please, try again.'));
+            $this->Flash->error(__('('.$parcellist->street.') could not be deleted. Please try again.'));
         }
 
         return $this->redirect(['action' => 'index']);

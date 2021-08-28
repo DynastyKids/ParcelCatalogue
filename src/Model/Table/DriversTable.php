@@ -58,6 +58,10 @@ class DriversTable extends Table
             ->maxLength('zone', 45)
             ->allowEmptyString('zone');
 
+        $validator
+            ->integer('active')
+            ->allowEmptyString('active');
+
         return $validator;
     }
 }

@@ -20,7 +20,7 @@
     <?= $this->Form->create($parcellist) ?>
     <fieldset>
         <legend><?= __('Adding Street Details') ?></legend>
-        <?= $this->Form->control('street',['label'=>'(Required) Street Name:','type'=>'text','class'=>'form-control','required'=>true]);?>
+        <?= $this->Form->control('streetname',['label'=>'(Required) Street Name:','type'=>'text','class'=>'form-control','required'=>true]);?>
         <br>
         <label for="driver" class="col-form-label">Driver Name:</label>
         <?php $options=[]?>
@@ -32,17 +32,23 @@
         <label for="suburb" class="col-form-label">Suburbs:</label>
         <?php $suburbs = ['Clovelly','Coogee','Daceyville','Kingsford','Randwick','South Coogee','St Pauls'];?>
         <?= $this->Form->select('suburb',$suburbs,['label'=>'Suburb Name','type'=>'text','class'=>'form-control']);?>
+        <br><br>
+        <h4>Number Ranges:</h4>
+        <br>
+        <small>Specify the number range in below.</small>
         <br>
         <label class="col-form-label">Odd Number Range:</label><br>
         <div class="row">
-            <div class="col-3"><?= $this->Form->control('oddblimit',['label'=>'From','type'=>'number','class'=>'form-control','style'=>'max-width:100px','default'=>1])?></div>
-            <div class="col-3"><?= $this->Form->control('oddulimit',['label'=>'To:','type'=>'number','class'=>'form-control','style'=>'max-width:100px','default'=>999])?></div>
+            <div class="col-3"><?= $this->Form->control('oddblimit',['label'=>'From','id'=>'oddblimit','type'=>'number','class'=>'form-control','style'=>'max-width:100px','default'=>1])?></div>
+            <div class="col-3"><?= $this->Form->control('oddulimit',['label'=>'To:','id'=>'oddulimit','type'=>'number','class'=>'form-control','style'=>'max-width:100px','default'=>999])?></div>
+            <button onclick="excludeodd()" type="button" class="col-5 btn btn-warning">Exclude Odd Numbers</button>
         </div>
         <br>
         <div class="row">
         <label class="col-form-label">Even Number Range</label>
             <div class="col-3"><?= $this->Form->control('evenblimit',['label'=>'From:','type'=>'number','class'=>'form-control col-sm-2','style'=>'max-width:100px','default'=>2])?></div>
             <div class="col-3"><?= $this->Form->control('evenulimit',['label'=>'To:','type'=>'number','class'=>'form-control col-sm-2','style'=>'max-width:100px','default'=>998])?></div>
+            <button onclick="excludeeven()" type="button" class="col-5 btn btn-warning">Exclude Even Numbers</button>
         </div>
         <?= $this->Form->hidden('zone',['type'=>'text','class'=>'form-control','value'=>'randwick']);?>
         <br>
@@ -52,3 +58,18 @@
     <?= $this->Form->end() ?>
     <br><br>
 </div>
+
+
+<script>
+    function excludeodd() {
+        document.getElementById("oddblimit").value = 0;
+        document.getElementById("oddulimit").value = 0;
+    }
+</script>
+
+<script>
+    function excludeeven() {
+        document.getElementById("evenblimit").value = 0;
+        document.getElementById("evenulimit").value = 0;
+    }
+</script>

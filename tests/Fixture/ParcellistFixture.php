@@ -22,14 +22,15 @@ class ParcellistFixture extends TestFixture
     // @codingStandardsIgnoreStart
     public $fields = [
         'id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
+        'streetname' => ['type' => 'string', 'length' => 255, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'street' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'driver' => ['type' => 'string', 'length' => 255, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'zone' => ['type' => 'string', 'length' => 255, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'suburb' => ['type' => 'text', 'length' => null, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null],
         'oddblimit' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => '1', 'comment' => '', 'precision' => null, 'autoIncrement' => null],
-        'oddulimit' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => '9999', 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'oddulimit' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => '999', 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'evenblimit' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => '2', 'comment' => '', 'precision' => null, 'autoIncrement' => null],
-        'evenulimit' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => '10000', 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'evenulimit' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => '998', 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
         ],
@@ -49,6 +50,7 @@ class ParcellistFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
+                'streetname' => 'Lorem ipsum dolor sit amet',
                 'street' => 'Lorem ipsum dolor sit amet',
                 'driver' => 'Lorem ipsum dolor sit amet',
                 'zone' => 'Lorem ipsum dolor sit amet',
