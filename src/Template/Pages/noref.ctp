@@ -46,13 +46,10 @@ $this->layout=false;
     </div>
 </div>
 <footer>
-    <div style="text-align: center;">扫一扫以使用小程序<br> <img src="xiaochengxu.jpg" alt="小程序二维码" style="width:200px;height:200px"><br></div>
-
-    <div style="text-align: center;">Data provied by <a href="https://post.testingstar.top">Online Mode</a><br></div>
+    <div style="text-align: center;">Scan to use WeChat Mini Program for StarTrack PRC Quick Scanning<br><?= $this->Html->image('xiaochengxu.jpg',['alt'=>'miniprogram','style'=>'width:200px;height:200px'])?></div>
 </footer>
 
-<button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top"
-        style="padding-top:0.7rem!important; width: 60px!important;height: 60px!important;">
+<button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top" style="padding-top:0.7rem!important; width: 60px!important;height: 60px!important;">
     ^
 </button>
 <style>
