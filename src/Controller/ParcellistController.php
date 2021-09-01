@@ -189,7 +189,7 @@ class ParcellistController extends AppController
             $parcellist = $this->Parcellist->patchEntity($parcellist, $receivedData);
             if ($this->Parcellist->save($parcellist)) {
                 $this->Flash->success(__($receivedData['street'].' assign to '.$receivedData['driver'].'. has been saved.'));
-                return $this->redirect(['action' => 'manage']);
+                return $this->redirect(['action' => 'updated']);
             }
             $this->Flash->error(__('There are some error happens on server.'));
         }
@@ -241,8 +241,7 @@ class ParcellistController extends AppController
             $parcellist = $this->Parcellist->patchEntity($parcellist, $receivedData);
             if ($this->Parcellist->save($parcellist)) {
                 $this->Flash->success(__('The change for '.$receivedData['streetname'].' has been saved.'));
-
-                return $this->redirect(['action' => 'manage']);
+                return $this->redirect(['action' => 'updated']);
             }
             $this->Flash->error(__('The change for '.$receivedData['streetname'].' could not be saved. Please try again.'));
         }
@@ -268,6 +267,18 @@ class ParcellistController extends AppController
             $this->Flash->error(__('('.$parcellist->street.') could not be deleted. Please try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect(['action' => 'manage']);
+    }
+
+    public function updated(){
+        $parcellist = $this->Parcellist->get(1, ['contain' => [],]);
+        date_default_timezone_set("Australia/Sydney");
+        debug(date("d/m/Y H:i"));
+        $parcellist->street = "00 Data Updated On: ".date("d/m/Y H:i");
+        $parcellist->streetname = $parcellist->street;
+        if ($this->Parcellist->save($parcellist)){
+            // Data updated & time updated
+        }
+        return $this->redirect(['action' => 'manage']);
     }
 }
