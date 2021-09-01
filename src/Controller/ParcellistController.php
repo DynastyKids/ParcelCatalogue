@@ -64,7 +64,7 @@ class ParcellistController extends AppController
      */
     public function offline()
     {
-        $this->redirect('https://mascot.testingstar.top');
+        $this->redirect('/');
     }
 
     /**
@@ -267,7 +267,7 @@ class ParcellistController extends AppController
             $this->Flash->error(__('('.$parcellist->street.') could not be deleted. Please try again.'));
         }
 
-        return $this->redirect(['action' => 'manage']);
+        return $this->redirect(['action' => 'index']);
     }
 
     public function updated(){
@@ -279,6 +279,6 @@ class ParcellistController extends AppController
         if ($this->Parcellist->save($parcellist)){
             // Data updated & time updated
         }
-        return $this->redirect(['action' => 'manage']);
+        return $this->redirect(['action' => 'index']);
     }
 }
