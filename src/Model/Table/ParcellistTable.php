@@ -88,6 +88,10 @@ class ParcellistTable extends Table
             ->integer('evenulimit')
             ->allowEmptyString('evenulimit');
 
+        $validator
+            ->integer('displayorder')
+            ->allowEmptyString('displayorder');
+
         return $validator;
     }
 }

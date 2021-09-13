@@ -16,6 +16,7 @@ use Cake\ORM\Entity;
  * @property int|null $oddulimit
  * @property int|null $evenblimit
  * @property int|null $evenulimit
+ * @property int|null $displayorder
  */
 class Parcellist extends Entity
 {
@@ -38,5 +39,6 @@ class Parcellist extends Entity
         'oddulimit' => true,
         'evenblimit' => true,
         'evenulimit' => true,
+        'displayorder' => true,
     ];
 }

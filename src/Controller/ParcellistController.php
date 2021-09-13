@@ -99,7 +99,7 @@ class ParcellistController extends AppController
     }
 
     public function api($word=null){
-        $parcellist = $this->Parcellist->find()->select(['id','street','driver','zone','suburb'])->where(['street like' =>'%'.$word.'%'])->orderAsc('street');
+        $parcellist = $this->Parcellist->find()->select(['id','street','driver'])->where(['street like' =>'%'.$word.'%'])->order(['streetname','displayorder'],true);
         if (is_numeric(substr($word,0,1))){
             $strnum = (int) filter_var($word, FILTER_SANITIZE_NUMBER_INT);
             preg_match("/^[\w ]+$/i",$word,$result1);

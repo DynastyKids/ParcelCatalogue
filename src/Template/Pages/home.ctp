@@ -154,7 +154,7 @@ $this->layout=false;
 <script>
     $.ajax({
         type: 'GET',
-        url: 'https://post.testingstar.top/api',
+        url: '/api',
         data: { get_param: 'Data' },
         dataType: 'json',
         success: function (data) {

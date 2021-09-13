@@ -31,6 +31,7 @@ class ParcellistFixture extends TestFixture
         'oddulimit' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => '999', 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'evenblimit' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => '2', 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'evenulimit' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => '998', 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'displayorder' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
         ],
@@ -59,6 +60,7 @@ class ParcellistFixture extends TestFixture
                 'oddulimit' => 1,
                 'evenblimit' => 1,
                 'evenulimit' => 1,
+                'displayorder' => 1,
             ],
         ];
         parent::init();
