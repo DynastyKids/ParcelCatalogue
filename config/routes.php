@@ -63,6 +63,7 @@ Router::scope('/', function (RouteBuilder $routes) {
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
     $routes->connect('/', ['controller' => 'Pages', 'action' => 'display','home']);
+    $routes->connect('/noref',['controller'=>'Pages','action'=>'display','noref']);
     $routes->connect('/online', ['controller' => 'Parcellist', 'action' => 'index']);
     $routes->connect('/search/*', ['controller' => 'Parcellist', 'action' => 'search']);
     $routes->connect('/add', ['controller' => 'Parcellist', 'action' => 'add']);
