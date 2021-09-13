@@ -30,10 +30,15 @@
         }?>
         <?php echo $this->Form->select('ndriver', $options,['class'=>'form-control']);?>
         <br>
-<!--        <label for="suburb" class="col-form-label">Suburbs:</label>-->
-<!--        --><?php //$suburbs = ['Clovelly','Coogee','Daceyville','Kingsford','Randwick','South Coogee','St Pauls'];?>
-<!--        --><?php //echo $this->Form->select('suburb',$suburbs,['label'=>'Suburb Name','type'=>'text','class'=>'form-control']);?>
-<!--        <br>-->
+        <?php
+        $duplicatecount = \Cake\ORM\TableRegistry::getTableLocator()->get('parcellist')->find()->where(['streetname'=>$parcellist->streetname])->count();
+        if($duplicatecount>0) {
+            echo '<label class="col-form-label">Set Display Order:</label><br>';
+            echo $this->Form->control('displayorder', ['label' => '', 'type' => 'number', 'class' => 'form-control', 'style' => 'max-width:100px']);
+        }
+        ?>
+        <br>
+
         <label class="col-form-label">Odd Number Range:</label><br>
         <div class="row">
             <div class="col-3"><?= $this->Form->control('oddblimit',['label'=>'From','type'=>'number','id'=>'oddblimit','class'=>'form-control','style'=>'max-width:100px','default'=>1])?></div>
