@@ -129,8 +129,8 @@ class ParcellistController extends AppController
         $this->response->header('Access-Control-Max-Age','172800');
     }
 
-    public function wechat(){
-        $parcellist = $this->Parcellist->find()->orderAsc('street');
+    public function detectChange(){
+        $parcellist = $this->Parcellist->get(1);
         $this->autoLayout = false;
         $this->render(false);
         $this->response->body(json_encode(['Status'=>'00','Data'=>($parcellist)]));

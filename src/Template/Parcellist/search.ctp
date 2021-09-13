@@ -1,12 +1,13 @@
 <?php $this->layout=false;?>
 <?php if($parcellist->count()>0){?>
     <table class="table table-success table-striped table-sm">
-        <thead style="font-weight: bold"><tr><td colspan="3">Street Name</td><td>Driver</td></tr></thead>
+        <thead style="font-weight: bold"><tr><td colspan="3">Street Name</td><td>Driver</td><td>Actions</td></tr></thead>
         <tbody>
             <?php for($i=0;$i<$parcellist->count() && $i<10;$i++){?>
                 <tr>
                     <td colspan="3"><?= $parcellist->toArray()[$i]['street']?></td>
                     <td><?= $parcellist->toArray()[$i]['driver']?></td>
+                    <td><?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcellist->toArray()[$i]['id']]) ?></td>
                 </tr>
             <?php }?>
             <?php if($parcellist->count()>10){?>
