@@ -64,14 +64,13 @@ Router::scope('/', function (RouteBuilder $routes) {
      */
     $routes->connect('/', ['controller' => 'Pages', 'action' => 'display','home']);
     $routes->connect('/noref',['controller'=>'Pages','action'=>'display','noref']);
-    $routes->connect('/online', ['controller' => 'Parcellist', 'action' => 'index']);
     $routes->connect('/search/*', ['controller' => 'Parcellist', 'action' => 'search']);
     $routes->connect('/add', ['controller' => 'Parcellist', 'action' => 'add']);
     $routes->connect('/manages', ['controller' => 'Parcellist', 'action' => 'index']);
     $routes->connect('/unknowns', ['controller' =>  'Parcellist', 'action' => 'manage','0']);
     $routes->connect('/api', ['controller' => 'Parcellist', 'action' => 'api']);
     $routes->connect('/offline',['controller'=>'Parcellist','action'=>'offline']);
-    $routes->connect('/wechat',['controller'=>'Parcellist','action'=>'wechat']);
+    $routes->connect('/detect',['controller'=>'Parcellist','action'=>'detectChange']);
 
     /*
      * ...and connect the rest of 'Pages' controller's URLs.
