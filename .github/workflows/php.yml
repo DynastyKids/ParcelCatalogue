@@ -16,20 +16,17 @@ jobs:
         php-versions: ['7.3']
 
     steps:
-    - uses: actions/checkout@v2
-
-    - name: Install PHP
-      uses: shivammathur/setup-php@v2
+    - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
       with:
-        php-version: ${{ matrix.php-versions }}
-        extensions: intl #optional
-        ini-values: "post_max_size=256M" #optional
+        php-version: '7.3'
+    
+    - uses: actions/checkout@v2
+   
+    - name: Install Dependencies
+      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
     - name: Check PHP Version
       run: php -v
-
-    - name: Check Composer update
-      run: composer update --ignore-platform-reqs
 
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
@@ -51,3 +48,5 @@ jobs:
 
     # - name: Run test suite
     #   run: composer run-script test
+    
+    
