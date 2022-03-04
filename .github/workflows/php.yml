@@ -13,20 +13,23 @@ jobs:
     strategy:
       matrix:
         operating-system: [ubuntu-latest]
-        php-versions: ['7.2', '7.3']
-    
+        php-versions: ['7.3']
+
     steps:
     - uses: actions/checkout@v2
-    
+
     - name: Install PHP
       uses: shivammathur/setup-php@v2
       with:
         php-version: ${{ matrix.php-versions }}
         extensions: intl #optional
         ini-values: "post_max_size=256M" #optional
-        
+
     - name: Check PHP Version
       run: php -v
+
+    - name: Check Composer update
+      run: composer update --ignore-platform-reqs
 
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
