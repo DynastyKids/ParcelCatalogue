@@ -16,12 +16,7 @@
 <body>
 <div id="contents">
     <div id="banner" class="bg-dark text-white" style="line-height: 16pt; padding-top: 0.5rem !important; padding-bottom: 0.5rem !important">
-        <div class="col-sm-12">
-            <!--<p id="pagestatus">Fetching Data from <a href="https://mascot.testingstar.top" style="color: wheat;">Online Mode</a></p>-->
-            <small>Zone 1: <span style="background: grey">Peter, Mark</span>, George, Cesar, Leo, Danny, Ivan, Chris, Chris Chen</small>
-            <br>
-            <small>Zone 2: <span style="background: grey">Alex</span>, Louis, Subash, Pramesh, Derek, Sean, Saruul</small>
-        </div>
+        <div class="col-sm-12"></div>
     </div>
     <div style="background: bisque; height: 60px; display: flex; flex-direction: row; padding: 0.5rem 1rem;">
         <input style="width: 70vw" type="text" autocorrect="off" autocomplete="off" id="searchKeyword"
@@ -41,11 +36,7 @@
         </table>
     </div>
 </div>
-<footer>
-    <div style="text-align: center;">Scan to use WeChat Mini Program for StarTrack PRC Quick Scanning<br>
-        <img src="xiaochengxu.jpg" alt="QR" width="200px" height="200px">
-    </div>
-</footer>
+<footer></footer>
 
 <button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top" style="padding-top:0.7rem!important; width: 60px!important;height: 60px!important;">
     ^
@@ -153,7 +144,7 @@
             $('#pagestatus').html('Data uplinked')
             $.each(data, function(index, element) {
                 for($ii=0;$ii<element.length;$ii++){
-                    if(element[$ii]['street']!=undefined){
+                    if(element[$ii]['street']!==undefined){
                         $('#catalog tbody').append('<tr><td>'+element[$ii]['street']+'</td><td>'+element[$ii]['driver']+'</td></tr>')
                     }
                 }

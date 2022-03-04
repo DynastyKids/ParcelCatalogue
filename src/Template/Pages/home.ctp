@@ -1,12 +1,10 @@
 <?php
 $this->layout=false;
-
 ?>
 <!DOCTYPE html>
 <html lang="en" translate="no">
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <meta http-equiv="refresh" content="7200">
     <title>Mascot PDC - Randwick sorting list</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="google" content="notranslate"/>
@@ -21,12 +19,7 @@ $this->layout=false;
 <body>
 <div id="contents">
     <div id="banner" class="bg-dark text-white" style="line-height: 16pt; padding-top: 0.5rem !important; padding-bottom: 0.5rem !important">
-        <div class="col-sm-12">
-            <!--<p id="pagestatus">Fetching Data from <a href="https://mascot.testingstar.top" style="color: wheat;">Online Mode</a></p>-->
-            <small>Zone 1: <span style="background: grey">Peter, Mark</span>, George, Cesar, Leo, Danny, Ivan, Chris, Chris Chen</small>
-            <br>
-            <small>Zone 2: <span style="background: grey">Alex</span>, Louis, Subash, Pramesh, Derek, Sean, Saruul</small>
-        </div>
+        <div class="col-sm-12"></div>
     </div>
     <div style="background: bisque; height: 60px; display: flex; flex-direction: row; padding: 0.5rem 1rem;">
         <input style="width: 70vw" type="text" autocorrect="off" autocomplete="off" id="searchKeyword"
