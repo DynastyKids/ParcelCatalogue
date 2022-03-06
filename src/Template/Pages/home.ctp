@@ -137,11 +137,6 @@ $this->layout=false;
                 document.getElementById("searchKeyword").focus();
             }
         }
-        var today = new Date();
-        var time = today.getHours();
-        if(time >=20 || time >=3){
-            alert("Major Update, multiple add changed:\n1. (RW1)Chris's zone has been replace to by Evan, Mike.\n2.(RW1) Ivan now takes all Vicar St.\n3.(RW1)Anzac Pde now goes to Jack.\n3.Subash is now having Bella St.\n");
-        }
     }
 </script>
 <script>
