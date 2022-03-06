@@ -142,7 +142,7 @@ $this->layout=false;
 <script>
     $.ajax({
         type: 'GET',
-        url: '/api',
+        url: 'https://post.danisty8.com/api',
         data: { get_param: 'Data' },
         dataType: 'json',
         success: function (data) {
