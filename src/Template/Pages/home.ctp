@@ -40,7 +40,9 @@ $this->layout=false;
     </div>
 </div>
 <footer>
-    <div style="text-align: center;">Scan to use WeChat Mini Program for StarTrack PRC Quick Scanning<br><?= $this->Html->image('xiaochengxu.jpg',['alt'=>'miniprogram','style'=>'width:200px;height:200px'])?></div>
+<!--    <div style="text-align: center;">-->
+<!--        Scan to use WeChat Mini Program for StarTrack PRC Quick Scanning<br>-->
+<!--        --><?//= $this->Html->image('xiaochengxu.jpg',['alt'=>'miniprogram','style'=>'width:200px;height:200px'])?><!--</div>-->
 </footer>
 
 <button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top" style="padding-top:0.7rem!important; width: 60px!important;height: 60px!important;">
