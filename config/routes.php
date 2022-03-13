@@ -69,7 +69,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/manages', ['controller' => 'Parcellist', 'action' => 'index']);
     $routes->connect('/unknowns', ['controller' =>  'Parcellist', 'action' => 'manage','0']);
     $routes->connect('/api', ['controller' => 'Parcellist', 'action' => 'api']);
-    $routes->connect('/offline',['controller'=>'Parcellist','action'=>'offline']);
+    $routes->connect('/drivers',['controller'=>'Parcellist','action'=>'drivers']);
     $routes->connect('/detect',['controller'=>'Parcellist','action'=>'detectChange']);
 
     /*

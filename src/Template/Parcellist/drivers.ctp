@@ -57,11 +57,6 @@
 <div class="mb-1" style="min-width: 100%">
     <div class="d-flex align-items-start">
         <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical" style="max-height: 120vh;overflow:auto;">
-            <button class="nav-link active" id="v-pills-All-tab" data-bs-toggle="pill" data-bs-target="#v-pills-all" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">All</button>
-            <?php $textarr="ABCDEFGHIJKLMNOPQRSTUVWXYZ"?>
-            <?php for ($i=0;$i<strlen($textarr);$i++){?>
-                <button class="nav-link" id="v-pills-<?= $textarr[$i]?>-tab" data-bs-toggle="pill" data-bs-target="#v-pills-<?= $textarr[$i]?>" type="button" role="tab" aria-controls="v-pills-<?= $textarr[$i]?>" aria-selected="false"><?= $textarr[$i]?></button>
-            <?php }?>
         </div>
         <div class="tab-content" id="v-pills-tabContent">
             <div class="tab-pane fade show active" id="v-pills-all" role="tabpanel" aria-labelledby="v-pills-all-tab">
@@ -83,23 +78,6 @@
                     </tbody>
                 </table>
             </div>
-
-            <?php for ($j=0;$j<strlen($textarr);$j++){?>
-                <div class="tab-pane fade" id="v-pills-<?= $textarr[$j]?>" role="tabpanel" aria-labelledby="v-pills-<?= $textarr[$j]?>-tab">
-                    <table class="table table-striped table-dark">
-                        <thead><tr><th scope="col" colspan="3">Street Name</th><th scope="col">Driver</th><th>Actions</th></tr></thead>
-                        <tbody>
-                        <?php foreach ($parcellistArr[$j] as $parcel): ?>
-                            <tr><td colspan="3"><?= h($parcel->street) ?></td><td><?= h($parcel->driver) ?></td>
-                                <td class="actions">
-                                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcel->id]) ?>
-                                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcel->id)]) ?>
-                                </td></tr>
-                        <?php endforeach; ?>
-                        </tbody>
-                    </table>
-                </div>
-            <?php }?>
         </div>
     </div>
 </div>
