@@ -20,22 +20,16 @@
 </nav>
 <div class="container-fluid" style="min-width: 100%">
     <?php
-        $zone1=[];
-        $zone2=[];
-        for($ii=0;$ii<$driverlist->count();$ii++){
-            if ($driverlist->toArray()[$ii]['zone'] == 1){
-                array_push($zone1,$driverlist->toArray()[$ii]['drivername']);
-            }
-            if ($driverlist->toArray()[$ii]['zone'] == 2){
-                array_push($zone2,$driverlist->toArray()[$ii]['drivername']);
-            }
-        }
+//        $zone1=[];
+//        $zone2=[];
+//        for($ii=0;$ii<$driverlist->count();$ii++){
+//            if ($driverlist->toArray()[$ii]['zone'] == 1){
+//                array_push($zone1,$driverlist->toArray()[$ii]['drivername']);
+//            }
+//        }
         ?>
-    <small style="color:lightsteelblue">Zone 1:
-        <?php for($ii=0;$ii<sizeof($zone1);$ii++){echo $zone1[$ii].", ";}?>
-    </small><br>
-    <small style="color:lightsteelblue">Zone 2:
-        <?php for($ii=0;$ii<sizeof($zone2);$ii++){echo $zone2[$ii].", ";}?>
+    <small style="color:lightsteelblue">Drivers:
+<!--        --><?php //for($ii=0;$ii<sizeof($zone1);$ii++){echo $zone1[$ii].", ";}?>
     </small><br>
     <form>
         <div class="input-group">
@@ -71,32 +65,10 @@
     <div class="d-flex align-items-start">
         <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical" style="max-height: 120vh;overflow:auto;">
             <button class="nav-link active" id="v-pills-All-tab" data-bs-toggle="pill" data-bs-target="#v-pills-all" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">All</button>
-            <button class="nav-link" id="v-pills-A-tab" data-bs-toggle="pill" data-bs-target="#v-pills-A" type="button" role="tab" aria-controls="v-pills-A" aria-selected="false">A</button>
-            <button class="nav-link" id="v-pills-B-tab" data-bs-toggle="pill" data-bs-target="#v-pills-B" type="button" role="tab" aria-controls="v-pills-B" aria-selected="false">B</button>
-            <button class="nav-link" id="v-pills-C-tab" data-bs-toggle="pill" data-bs-target="#v-pills-C" type="button" role="tab" aria-controls="v-pills-C" aria-selected="false">C</button>
-            <button class="nav-link" id="v-pills-D-tab" data-bs-toggle="pill" data-bs-target="#v-pills-D" type="button" role="tab" aria-controls="v-pills-D" aria-selected="false">D</button>
-            <button class="nav-link" id="v-pills-E-tab" data-bs-toggle="pill" data-bs-target="#v-pills-E" type="button" role="tab" aria-controls="v-pills-E" aria-selected="false">E</button>
-            <button class="nav-link" id="v-pills-F-tab" data-bs-toggle="pill" data-bs-target="#v-pills-F" type="button" role="tab" aria-controls="v-pills-F" aria-selected="false">F</button>
-            <button class="nav-link" id="v-pills-G-tab" data-bs-toggle="pill" data-bs-target="#v-pills-G" type="button" role="tab" aria-controls="v-pills-G" aria-selected="false">G</button>
-            <button class="nav-link" id="v-pills-H-tab" data-bs-toggle="pill" data-bs-target="#v-pills-H" type="button" role="tab" aria-controls="v-pills-H" aria-selected="false">H</button>
-            <button class="nav-link" id="v-pills-I-tab" data-bs-toggle="pill" data-bs-target="#v-pills-I" type="button" role="tab" aria-controls="v-pills-I" aria-selected="false">I</button>
-            <button class="nav-link" id="v-pills-J-tab" data-bs-toggle="pill" data-bs-target="#v-pills-J" type="button" role="tab" aria-controls="v-pills-J" aria-selected="false">J</button>
-            <button class="nav-link" id="v-pills-K-tab" data-bs-toggle="pill" data-bs-target="#v-pills-K" type="button" role="tab" aria-controls="v-pills-K" aria-selected="false">K</button>
-            <button class="nav-link" id="v-pills-L-tab" data-bs-toggle="pill" data-bs-target="#v-pills-L" type="button" role="tab" aria-controls="v-pills-L" aria-selected="false">L</button>
-            <button class="nav-link" id="v-pills-M-tab" data-bs-toggle="pill" data-bs-target="#v-pills-M" type="button" role="tab" aria-controls="v-pills-M" aria-selected="false">M</button>
-            <button class="nav-link" id="v-pills-N-tab" data-bs-toggle="pill" data-bs-target="#v-pills-N" type="button" role="tab" aria-controls="v-pills-N" aria-selected="false">N</button>
-            <button class="nav-link" id="v-pills-O-tab" data-bs-toggle="pill" data-bs-target="#v-pills-O" type="button" role="tab" aria-controls="v-pills-O" aria-selected="false">O</button>
-            <button class="nav-link" id="v-pills-P-tab" data-bs-toggle="pill" data-bs-target="#v-pills-P" type="button" role="tab" aria-controls="v-pills-P" aria-selected="false">P</button>
-            <button class="nav-link" id="v-pills-Q-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Q" type="button" role="tab" aria-controls="v-pills-Q" aria-selected="false">Q</button>
-            <button class="nav-link" id="v-pills-R-tab" data-bs-toggle="pill" data-bs-target="#v-pills-R" type="button" role="tab" aria-controls="v-pills-R" aria-selected="false">R</button>
-            <button class="nav-link" id="v-pills-S-tab" data-bs-toggle="pill" data-bs-target="#v-pills-S" type="button" role="tab" aria-controls="v-pills-S" aria-selected="false">S</button>
-            <button class="nav-link" id="v-pills-T-tab" data-bs-toggle="pill" data-bs-target="#v-pills-T" type="button" role="tab" aria-controls="v-pills-T" aria-selected="false">T</button>
-            <button class="nav-link" id="v-pills-U-tab" data-bs-toggle="pill" data-bs-target="#v-pills-U" type="button" role="tab" aria-controls="v-pills-U" aria-selected="false">U</button>
-            <button class="nav-link" id="v-pills-V-tab" data-bs-toggle="pill" data-bs-target="#v-pills-V" type="button" role="tab" aria-controls="v-pills-V" aria-selected="false">V</button>
-            <button class="nav-link" id="v-pills-W-tab" data-bs-toggle="pill" data-bs-target="#v-pills-W" type="button" role="tab" aria-controls="v-pills-W" aria-selected="false">W</button>
-            <button class="nav-link" id="v-pills-X-tab" data-bs-toggle="pill" data-bs-target="#v-pills-X" type="button" role="tab" aria-controls="v-pills-X" aria-selected="false">X</button>
-            <button class="nav-link" id="v-pills-Y-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Y" type="button" role="tab" aria-controls="v-pills-Y" aria-selected="false">Y</button>
-            <button class="nav-link" id="v-pills-Z-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Z" type="button" role="tab" aria-controls="v-pills-Z" aria-selected="false">Z</button>
+            <?php $textarr=["A","B","C","D","E","F","G","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]?>
+            <?php for ($i=0;$i<sizeof($textarr);$i++){?>
+                <button class="nav-link" id="v-pills-<?= $textarr[$i]?>-tab" data-bs-toggle="pill" data-bs-target="#v-pills-<?= $textarr[$i]?>" type="button" role="tab" aria-controls="v-pills-<?= $textarr[$i]?>" aria-selected="false"><?= $textarr[$i]?></button>
+            <?php }?>
         </div>
         <div class="tab-content" id="v-pills-tabContent">
             <div class="tab-pane fade show active" id="v-pills-all" role="tabpanel" aria-labelledby="v-pills-all-tab">
@@ -118,394 +90,23 @@
                     </tbody>
                 </table>
             </div>
-            <div class="tab-pane fade" id="v-pills-A" role="tabpanel" aria-labelledby="v-pills-A-tab">
-                <table class="table table-striped table-dark">
-                    <thead><tr><th scope="col" colspan="3">Street Name</th><th scope="col">Driver</th><th>Actions</th></tr></thead>
-                    <tbody>
-                    <?php foreach ($parcellistA as $parcel): ?>
-                        <tr><td colspan="3"><?= h($parcel->street) ?></td><td><?= h($parcel->driver) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcel->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcel->id)]) ?>
-                            </td></tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="v-pills-B" role="tabpanel" aria-labelledby="v-pills-B-tab">
-                <table class="table table-striped table-dark">
-                    <thead><tr><th scope="col" colspan="3">Street Name</th><th scope="col">Driver</th><th>Actions</th></tr></thead>
-                    <tbody>
-                    <?php foreach ($parcellistB as $parcel): ?>
-                        <tr><td colspan="3"><?= h($parcel->street) ?></td><td><?= h($parcel->driver) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcel->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcel->id)]) ?>
-                            </td></tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="v-pills-C" role="tabpanel" aria-labelledby="v-pills-C-tab">
-                <table class="table table-striped table-dark">
-                    <thead><tr><th scope="col" colspan="3">Street Name</th><th scope="col">Driver</th><th>Actions</th></tr></thead>
-                    <tbody>
-                    <?php foreach ($parcellistC as $parcel): ?>
-                        <tr><td colspan="3"><?= h($parcel->street) ?></td><td><?= h($parcel->driver) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcel->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcel->id)]) ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="v-pills-D" role="tabpanel" aria-labelledby="v-pills-D-tab">
-                <table class="table table-striped table-dark">
-                    <thead><tr><th scope="col" colspan="3">Street Name</th><th scope="col">Driver</th><th>Actions</th></tr></thead>
-                    <tbody>
-                    <?php foreach ($parcellistD as $parcel): ?>
-                        <tr><td colspan="3"><?= h($parcel->street) ?></td><td><?= h($parcel->driver) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcel->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcel->id)]) ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="v-pills-E" role="tabpanel" aria-labelledby="v-pills-E-tab">
-                <table class="table table-striped table-dark">
-                    <thead><tr><th scope="col" colspan="3">Street Name</th><th scope="col">Driver</th><th>Actions</th></tr></thead>
-                    <tbody>
-                    <?php foreach ($parcellistE as $parcel): ?>
-                        <tr><td colspan="3"><?= h($parcel->street) ?></td><td><?= h($parcel->driver) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcel->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcel->id)]) ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="v-pills-F" role="tabpanel" aria-labelledby="v-pills-F-tab">
-                <table class="table table-striped table-dark">
-                    <thead><tr><th scope="col" colspan="3">Street Name</th><th scope="col">Driver</th><th>Actions</th></tr></thead>
-                    <tbody>
-                    <?php foreach ($parcellistF as $parcel): ?>
-                        <tr><td colspan="3"><?= h($parcel->street) ?></td><td><?= h($parcel->driver) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcel->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcel->id)]) ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="v-pills-G" role="tabpanel" aria-labelledby="v-pills-G-tab">
-                <table class="table table-striped table-dark">
-                    <thead><tr><th scope="col" colspan="3">Street Name</th><th scope="col">Driver</th><th>Actions</th></tr></thead>
-                    <tbody>
-                    <?php foreach ($parcellistG as $parcel): ?>
-                        <tr><td colspan="3"><?= h($parcel->street) ?></td><td><?= h($parcel->driver) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcel->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcel->id)]) ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="v-pills-H" role="tabpanel" aria-labelledby="v-pills-H-tab">
-                <table class="table table-striped table-dark">
-                    <thead><tr><th scope="col" colspan="3">Street Name</th><th scope="col">Driver</th><th>Actions</th></tr></thead>
-                    <tbody>
-                    <?php foreach ($parcellistH as $parcel): ?>
-                        <tr><td colspan="3"><?= h($parcel->street) ?></td><td><?= h($parcel->driver) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcel->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcel->id)]) ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="v-pills-I" role="tabpanel" aria-labelledby="v-pills-I-tab">
-                <table class="table table-striped table-dark">
-                    <thead><tr><th scope="col" colspan="3">Street Name</th><th scope="col">Driver</th><th>Actions</th></tr></thead>
-                    <tbody>
-                    <?php foreach ($parcellistI as $parcel): ?>
-                        <tr><td colspan="3"><?= h($parcel->street) ?></td><td><?= h($parcel->driver) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcel->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcel->id)]) ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="v-pills-J" role="tabpanel" aria-labelledby="v-pills-J-tab">
-                <table class="table table-striped table-dark">
-                    <thead><tr><th scope="col" colspan="3">Street Name</th><th scope="col">Driver</th><th>Actions</th></tr></thead>
-                    <tbody>
-                    <?php foreach ($parcellistJ as $parcel): ?>
-                        <tr><td colspan="3"><?= h($parcel->street) ?></td><td><?= h($parcel->driver) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcel->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcel->id)]) ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="v-pills-K" role="tabpanel" aria-labelledby="v-pills-K-tab">
-                <table class="table table-striped table-dark">
-                    <thead><tr><th scope="col" colspan="3">Street Name</th><th scope="col">Driver</th><th>Actions</th></tr></thead>
-                    <tbody>
-                    <?php foreach ($parcellistK as $parcel): ?>
-                        <tr><td colspan="3"><?= h($parcel->street) ?></td><td><?= h($parcel->driver) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcel->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcel->id)]) ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="v-pills-L" role="tabpanel" aria-labelledby="v-pills-L-tab">
-                <table class="table table-striped table-dark">
-                    <thead><tr><th scope="col" colspan="3">Street Name</th><th scope="col">Driver</th><th>Actions</th></tr></thead>
-                    <tbody>
-                    <?php foreach ($parcellistL as $parcel): ?>
-                        <tr><td colspan="3"><?= h($parcel->street) ?></td><td><?= h($parcel->driver) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcel->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcel->id)]) ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="v-pills-M" role="tabpanel" aria-labelledby="v-pills-M-tab">
-                <table class="table table-striped table-dark">
-                    <thead><tr><th scope="col" colspan="3">Street Name</th><th scope="col">Driver</th><th>Actions</th></tr></thead>
-                    <tbody>
-                    <?php foreach ($parcellistM as $parcel): ?>
-                        <tr><td colspan="3"><?= h($parcel->street) ?></td><td><?= h($parcel->driver) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcel->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcel->id)]) ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="v-pills-N" role="tabpanel" aria-labelledby="v-pills-N-tab">
-                <table class="table table-striped table-dark">
-                    <thead><tr><th scope="col" colspan="3">Street Name</th><th scope="col">Driver</th><th>Actions</th></tr></thead>
-                    <tbody>
-                    <?php foreach ($parcellistN as $parcel): ?>
-                        <tr><td colspan="3"><?= h($parcel->street) ?></td><td><?= h($parcel->driver) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcel->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcel->id)]) ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="v-pills-O" role="tabpanel" aria-labelledby="v-pills-O-tab">
-                <table class="table table-striped table-dark">
-                    <thead><tr><th scope="col" colspan="3">Street Name</th><th scope="col">Driver</th><th>Actions</th></tr></thead>
-                    <tbody>
-                    <?php foreach ($parcellistO as $parcel): ?>
-                        <tr><td colspan="3"><?= h($parcel->street) ?></td><td><?= h($parcel->driver) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcel->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcel->id)]) ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="v-pills-P" role="tabpanel" aria-labelledby="v-pills-P-tab">
-                <table class="table table-striped table-dark">
-                    <thead><tr><th scope="col" colspan="3">Street Name</th><th scope="col">Driver</th><th>Actions</th></tr></thead>
-                    <tbody>
-                    <?php foreach ($parcellistP as $parcel): ?>
-                        <tr><td colspan="3"><?= h($parcel->street) ?></td><td><?= h($parcel->driver) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcel->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcel->id)]) ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="v-pills-Q" role="tabpanel" aria-labelledby="v-pills-Q-tab">
-                <table class="table table-striped table-dark">
-                    <thead><tr><th scope="col" colspan="3">Street Name</th><th scope="col">Driver</th><th>Actions</th></tr></thead>
-                    <tbody>
-                    <?php foreach ($parcellistQ as $parcel): ?>
-                        <tr><td colspan="3"><?= h($parcel->street) ?></td><td><?= h($parcel->driver) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcel->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcel->id)]) ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="v-pills-R" role="tabpanel" aria-labelledby="v-pills-R-tab">
-                <table class="table table-striped table-dark">
-                    <thead><tr><th scope="col" colspan="3">Street Name</th><th scope="col">Driver</th><th>Actions</th></tr></thead>
-                    <tbody>
-                    <?php foreach ($parcellistR as $parcel): ?>
-                        <tr><td colspan="3"><?= h($parcel->street) ?></td><td><?= h($parcel->driver) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcel->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcel->id)]) ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="v-pills-S" role="tabpanel" aria-labelledby="v-pills-S-tab">
-                <table class="table table-striped table-dark">
-                    <thead><tr><th scope="col" colspan="3">Street Name</th><th scope="col">Driver</th><th>Actions</th></tr></thead>
-                    <tbody>
-                    <?php foreach ($parcellistS as $parcel): ?>
-                        <tr><td colspan="3"><?= h($parcel->street) ?></td><td><?= h($parcel->driver) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcel->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcel->id)]) ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="v-pills-T" role="tabpanel" aria-labelledby="v-pills-T-tab">
-                <table class="table table-striped table-dark">
-                    <thead><tr><th scope="col" colspan="3">Street Name</th><th scope="col">Driver</th><th>Actions</th></tr></thead>
-                    <tbody>
-                    <?php foreach ($parcellistT as $parcel): ?>
-                        <tr><td colspan="3"><?= h($parcel->street) ?></td><td><?= h($parcel->driver) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcel->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcel->id)]) ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="v-pills-U" role="tabpanel" aria-labelledby="v-pills-U-tab">
-                <table class="table table-striped table-dark">
-                    <thead><tr><th scope="col" colspan="3">Street Name</th><th scope="col">Driver</th><th>Actions</th></tr></thead>
-                    <tbody>
-                    <?php foreach ($parcellistU as $parcel): ?>
-                        <tr><td colspan="3"><?= h($parcel->street) ?></td><td><?= h($parcel->driver) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcel->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcel->id)]) ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="v-pills-V" role="tabpanel" aria-labelledby="v-pills-V-tab">
-                <table class="table table-striped table-dark">
-                    <thead><tr><th scope="col" colspan="3">Street Name</th><th scope="col">Driver</th><th>Actions</th></tr></thead>
-                    <tbody>
-                    <?php foreach ($parcellistV as $parcel): ?>
-                        <tr><td colspan="3"><?= h($parcel->street) ?></td><td><?= h($parcel->driver) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcel->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcel->id)]) ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="v-pills-W" role="tabpanel" aria-labelledby="v-pills-W-tab">
-                <table class="table table-striped table-dark">
-                    <thead><tr><th scope="col" colspan="3">Street Name</th><th scope="col">Driver</th><th>Actions</th></tr></thead>
-                    <tbody>
-                    <?php foreach ($parcellistW as $parcel): ?>
-                        <tr><td colspan="3"><?= h($parcel->street) ?></td><td><?= h($parcel->driver) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcel->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcel->id)]) ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="v-pills-X" role="tabpanel" aria-labelledby="v-pills-X-tab">
-                <table class="table table-striped table-dark">
-                    <thead><tr><th scope="col" colspan="3">Street Name</th><th scope="col">Driver</th><th>Actions</th></tr></thead>
-                    <tbody>
-                    <?php foreach ($parcellistX as $parcel): ?>
-                        <tr><td colspan="3"><?= h($parcel->street) ?></td><td><?= h($parcel->driver) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcel->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcel->id)]) ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="v-pills-Y" role="tabpanel" aria-labelledby="v-pills-Y-tab">
-                <table class="table table-striped table-dark">
-                    <thead><tr><th scope="col" colspan="3">Street Name</th><th scope="col">Driver</th><th>Actions</th></tr></thead>
-                    <tbody>
-                    <?php foreach ($parcellistY as $parcel): ?>
-                        <tr><td colspan="3"><?= h($parcel->street) ?></td><td><?= h($parcel->driver) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcel->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcel->id)]) ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="v-pills-Z" role="tabpanel" aria-labelledby="v-pills-Z-tab">
-                <table class="table table-striped table-dark">
-                    <thead><tr><th scope="col" colspan="3">Street Name</th><th scope="col">Driver</th><th>Actions</th></tr></thead>
-                    <tbody>
-                    <?php foreach ($parcellistZ as $parcel): ?>
-                        <tr><td colspan="3"><?= h($parcel->street) ?></td><td><?= h($parcel->driver) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcel->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcel->id)]) ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
+
+            <?php for ($j=0;$j<sizeof($textarr);$j++){?>
+                <div class="tab-pane fade" id="v-pills-<?= $textarr[$j]?>" role="tabpanel" aria-labelledby="v-pills-<?= $textarr[$j]?>-tab">
+                    <table class="table table-striped table-dark">
+                        <thead><tr><th scope="col" colspan="3">Street Name</th><th scope="col">Driver</th><th>Actions</th></tr></thead>
+                        <tbody>
+                        <?php foreach ($parcellistArr[$j] as $parcel): ?>
+                            <tr><td colspan="3"><?= h($parcel->street) ?></td><td><?= h($parcel->driver) ?></td>
+                                <td class="actions">
+                                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcel->id]) ?>
+                                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcel->id)]) ?>
+                                </td></tr>
+                        <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            <?php }?>
         </div>
     </div>
 </div>

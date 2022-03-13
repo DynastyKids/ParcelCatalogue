@@ -20,7 +20,6 @@ class ParcellistController extends AppController
      */
     public function index()
     {
-        $driverlist = TableRegistry::getTableLocator()->get('drivers')->find();
         $parcellist = $this->Parcellist->find()->orderAsc('street');
         $parcellistA = $this->Parcellist->find()->where(['street like'=>'A%'])->orderAsc('street');
         $parcellistB = $this->Parcellist->find()->where(['street like'=>'B%'])->orderAsc('street');
@@ -49,12 +48,13 @@ class ParcellistController extends AppController
         $parcellistY = $this->Parcellist->find()->where(['street like'=>'Y%'])->orderAsc('street');
         $parcellistZ = $this->Parcellist->find()->where(['street like'=>'Z%'])->orderAsc('street');
 
+        $parcellistArr=[$parcellistA,$parcellistB,$parcellistC,$parcellistD,$parcellistE,$parcellistF,$parcellistG,
+            $parcellistH,$parcellistI,$parcellistJ,$parcellistK,$parcellistL,$parcellistM,$parcellistN,$parcellistO,
+            $parcellistP,$parcellistQ,$parcellistR,$parcellistS,$parcellistT,$parcellistU,$parcellistV,$parcellistW,
+            $parcellistX,$parcellistY,$parcellistZ];
+
         $this->set(compact('parcellist'));
-        $this->set(compact('driverlist'));
-        $this->set(compact('parcellistA','parcellistB','parcellistC','parcellistD',
-            'parcellistE','parcellistF','parcellistG','parcellistH','parcellistI','parcellistJ','parcellistK',
-            'parcellistL','parcellistM','parcellistN','parcellistO','parcellistP','parcellistQ','parcellistR',
-            'parcellistS','parcellistT','parcellistU','parcellistV','parcellistW','parcellistX','parcellistY','parcellistZ'));
+        $this->set(compact('parcellistArr'));
     }
 
     /**
