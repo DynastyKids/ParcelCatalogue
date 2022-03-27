@@ -13,7 +13,6 @@
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="/manages">Management Home</a></li>
                 <li class="nav-item"><a class="nav-link" aria-current="page" href="/">Sorting List</a></li>
                 <li class="nav-item"><a class="nav-link" aria-current="page" href="/Parcellist/add">Add new street</a></li>
-                <li class="nav-item"><a class="nav-link" aria-current="page" href="/drivers/add">Add new driver</a></li>
             </ul>
         </div>
     </div>

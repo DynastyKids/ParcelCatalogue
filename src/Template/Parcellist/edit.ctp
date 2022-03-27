@@ -10,8 +10,8 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="/offline">Offline Mode</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Catalogue Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/manages">Management Home</a></li>
             </ul>
         </div>
     </div>
@@ -22,13 +22,7 @@
         <legend><?= __('Edit Street Details') ?></legend>
         <?= $this->Form->control('streetname',['label'=>'Street Name:','type'=>'text','class'=>'form-control']);?>
         <br>
-        <label for="driver">Driver Name:</label>
-        <?php $options=[];
-        array_push($options,"Current Driver: ".$parcellist->driver)?>
-        <?php for ($i=0;$i<$driverlist->count();$i++){
-           array_push($options,$driverlist->toArray()[$i]['drivername']);
-        }?>
-        <?php echo $this->Form->select('ndriver', $options,['class'=>'form-control']);?>
+        <?php echo $this->Form->control('driver',['label'=>"Driver Name:",'class'=>'form-control']);?>
         <br>
         <?php
         $duplicatecount = \Cake\ORM\TableRegistry::getTableLocator()->get('parcellist')->find()->where(['streetname'=>$parcellist->streetname])->count();

@@ -146,15 +146,9 @@ class ParcellistController extends AppController
     public function add()
     {
         $parcellist = $this->Parcellist->newEntity();
-        $driverlist = TableRegistry::getTableLocator()->get('drivers')->find()->where(['active'=>1]);
         $suburbs = ['Clovelly','Clovelly West','Coogee','Daceyville','Kingsford','Randwick','South Coogee','St Pauls','Maroubra(MiscSort)','Kensington(MiscSort)','Other MiscSort'];
         if ($this->request->is('post')) {
             $receivedData = $this->request->getData();
-            $driverzone = $driverlist->where(['id'=>$receivedData['driver']+1]);
-            if($driverzone->count()>0){
-                $receivedData['driver']=$driverzone->toArray()[0]['drivername'];
-                $receivedData['zone']=$driverzone->toArray()[0]['zone'];
-            }
 
             if ($receivedData['oddblimit']==1 && $receivedData['oddulimit'] == 999 && $receivedData['evenblimit']==2 && $receivedData['evenulimit']==998 ){
                 // Full Street
@@ -180,7 +174,6 @@ class ParcellistController extends AppController
         }
 
         $this->set(compact('suburbs'));
-        $this->set(compact('driverlist'));
         $this->set(compact('parcellist'));
     }
 
@@ -197,17 +190,8 @@ class ParcellistController extends AppController
             'contain' => [],
         ]);
         $suburbs = ['Clovelly','Clovelly West','Coogee','Daceyville','Kingsford','Randwick','South Coogee','St Pauls','Maroubra(MiscSort)','Kensington(MiscSort)','Other MiscSort'];
-        $driverlist = TableRegistry::getTableLocator()->get('drivers')->find()->where(['active'=>1]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $receivedData = $this->request->getData();
-            if($receivedData['ndriver']>0) {
-                $driverzone = $driverlist->where(['id' => $receivedData['ndriver']]);
-                if ($driverzone->count() > 0) {
-                    $receivedData['driver'] = $driverzone->toArray()[0]['drivername'];
-                    $receivedData['zone'] = $driverzone->toArray()[0]['zone'];
-                }
-            }
-            debug($receivedData);
             if ($receivedData['oddblimit']==1 && $receivedData['oddulimit'] == 999 && $receivedData['evenblimit']==2 && $receivedData['evenulimit']==998 ){
                 // Full Street
                 $receivedData['street'] = $receivedData['streetname'];
@@ -232,7 +216,6 @@ class ParcellistController extends AppController
         }
         $this->set(compact('suburbs'));
         $this->set(compact('parcellist'));
-        $this->set(compact('driverlist'));
     }
 
     /**
