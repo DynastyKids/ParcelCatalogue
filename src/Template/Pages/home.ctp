@@ -144,7 +144,7 @@ $this->layout=false;
 <script>
     $.ajax({
         type: 'GET',
-        url: <?= env('HOSTING_API',null)?>,
+        url: "<?= env('HOSTING_API',null)?>",
         data: { get_param: 'Data' },
         dataType: 'json',
         success: function (data) {
