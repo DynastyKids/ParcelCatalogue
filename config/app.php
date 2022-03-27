@@ -2,7 +2,7 @@
 
 use Cake\Cache\Engine\FileEngine;
 use Cake\Database\Connection;
-use Cake\Database\Driver\Mysql;
+use Cake\Database\Driver\Postgres;
 use Cake\Error\ExceptionRenderer;
 use Cake\Log\Engine\FileLog;
 use Cake\Mailer\Transport\MailTransport;
@@ -261,21 +261,22 @@ return [
     'Datasources' => [
         'default' => [
             'className' => Connection::class,
-            'driver' => Mysql::class,
+            'driver' => Postgres::class,
             'persistent' => false,
-            'host' => '144.202.119.241',
+            'host' => env('DATABASE_HOST','localhost'),
             /*
              * CakePHP will use the default DB port based on the driver selected
              * MySQL on MAMP uses port 8889, MAMP users will want to uncomment
              * the following line and set the port accordingly
              */
-            //'port' => 'non_standard_port_number',
+            // 'port' => env($DATABASE_PORT),
             /*
              * It is recommended to set these options through your environment or app_local.php
              */
-            'username' => 'botanypdc',
-            'password' => 'bonatypdc',
-            'database' => 'botanypdc',
+            'username' => env('DATABASE_USER',"User"),
+            'password' => env('DATABASE_AUTH',"Auth"),
+            'database' => env('DATABASE_NAME',"DBNAME"),
+            'schema' => env('DATABASE_SCHEMA'),
             /*
              * You do not need to set this flag to use full utf-8 encoding (internal default since CakePHP 3.6).
              */
