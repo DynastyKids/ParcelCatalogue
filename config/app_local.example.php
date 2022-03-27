@@ -29,6 +29,30 @@ return [
     ],
 
     /*
+     * Connection information used by the ORM to connect
+     * to your application's datastores.
+     *
+     * See app.php for more configuration options.
+     */
+    'Datasources' => [
+        'default' => [
+            'host' => env('DATABASE_HOST','localhost'),
+            /*
+             * CakePHP will use the default DB port based on the driver selected
+             * MySQL on MAMP uses port 8889, MAMP users will want to uncomment
+             * the following line and set the port accordingly
+             */
+            //'port' => 'non_standard_port_number',
+            'username' => env('DATABASE_USER',"User"),
+            'schema' => env('DATABASE_SCHEMA'),
+            'password' => env('DATABASE_AUTH',"Auth"),
+            'database' => env('DATABASE_NAME',"DBNAME"),
+            'log' => true,
+            'url' => env('DATABASE_URL', null),
+        ],
+    ],
+
+    /*
      * Email configuration.
      *
      * Host and credential configuration in case you are using SmtpTransport
