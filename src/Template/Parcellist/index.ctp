@@ -74,7 +74,7 @@
                             <?php if($parcel->id !=1 ){?>
                             <td class="actions">
                                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcel->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcel->id)]) ?>
+                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete " {0}" ? ', $parcel->streetname)])  ?>
                             </td>
                             <?php } else { echo "<td></td>"; }?>
                         </tr>
@@ -92,7 +92,7 @@
                             <tr><td colspan="3"><?= h($parcel->street) ?></td><td><?= h($parcel->driver) ?></td>
                                 <td class="actions">
                                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $parcel->id]) ?>
-                                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcel->id)]) ?>
+                                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $parcel->id], ['confirm' => __('Are you sure you want to delete "{0}"?', $parcel->streetname)]) ?>
                                 </td></tr>
                         <?php endforeach; ?>
                         </tbody>
